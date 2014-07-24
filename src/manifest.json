@@ -1,8 +1,8 @@
 {
-  "name": "アイギスウィジェット",
-  "version": "0.0.1",
+  "name": "dev千年戦争アイギスウィジェット",
+  "version": "0.0.0",
   "manifest_version": 2,
-  "description": "千年戦争アイギスウィジェット",
+  "description": "王子……、聞こえますか？結晶を……もっと結晶を割るのですっ！",
   "homepage_url": "http://aigis.wiki",
   "icons": {
     "16": "icons/icon16.png",
@@ -18,7 +18,7 @@
 
   "browser_action": {
     "default_icon": "icons/icon19.png",
-    "default_title": "browser action demo",
+    "default_title": "dev千年戦争アイギスウィジェット",
     "default_popup": "browser_action/browser_action.html"
   },
 

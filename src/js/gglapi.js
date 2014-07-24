@@ -3,7 +3,7 @@
  */
 var gglapi = gglapi || {};
 (function() {
-  gglapi.CLIENT_ID = '206298929708-88ioadjiskfpulfuetb8nd4ldelobbg1.apps.googleusercontent.com';
+  gglapi.CLIENT_ID = '206298929708-ak62pnmmukilom4l5idd1203tlp4ma14.apps.googleusercontent.com';
   gglapi.APIKEY = 'AIzaSyA8D71DP9GXqvrfYTAehrw1Eb8q61w3Z5g';
   gglapi.SCOPES = 'https://www.googleapis.com/auth/drive';
   gglapi.auth = false;

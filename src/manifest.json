@@ -1,0 +1,51 @@
+{
+  "name": "アイギスウィジェット",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "千年戦争アイギスウィジェット",
+  "homepage_url": "http://aigis.wiki",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "page": "bg/background.html",
+    "persistent": true
+  },
+
+  "options_page": "options_custom/index.html",
+
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "browser action demo",
+    "default_popup": "browser_action/browser_action.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches" : [
+        "http://www.dmm.co.jp/netgame/social/-/gadgets/=/app_id=156462/?widget=true*"
+      ],
+      "js" : [
+        "js/jquery/jquery-2.1.1.min.js",
+        "js/gglanalytics.js",
+        "js/constants.js",
+        "js/util.js",
+        "js/window.js"
+      ]
+    }
+  ],
+
+  "content_security_policy": "script-src 'self' https://www.google-analytics.com https://ssl.google-analytics.com https://apis.google.com; object-src 'self'",
+  "permissions": [
+    "notifications",
+    "tabs",
+    "webRequest",
+    "storage",
+    "unlimitedStorage",
+    "alarms",
+    "<all_urls>"
+  ],
+  "minimum_chrome_version": "36"
+}

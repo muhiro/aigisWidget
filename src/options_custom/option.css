@@ -1,0 +1,23 @@
+#header {
+  padding: 10px 10px 10px 50px;
+}
+#header h1 {
+  display: inline;
+}
+#sidebar {
+}
+#content {
+}
+.controls {
+  padding-top: 3px;
+}
+.slider-horizontal {
+  padding-top: 30px;
+}
+.slider-selection {
+  background: #BABABA;
+}
+#footer {
+  text-align: right;
+  padding: 10px 10px 10px 10px;
+}

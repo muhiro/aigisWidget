@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="user-scalable=no,initial-scale = 1.0,maximum-scale = 1.0">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <title></title>
+    <style type="text/css">
+      #content {
+        padding: 10px;
+        width: 400px;
+      }
+      #status {
+        padding-top: 3px;
+        padding-bottom: 3px;
+      }
+      #status1v {
+        width: 190px;
+        float: left;
+      }
+      #status2s {
+        width: 190px;
+        float: left;
+      }
+      #status1 {
+        width: 190px;
+        float: left;
+      }
+      #status2 {
+        width: 190px;
+        float: left;
+      }
+      .list-group {
+        margin-bottom: 0px;
+      }
+      .label-time-right {
+        float: right;
+        margin-top: 1px;
+        margin-left: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="hidden" name="mode" id="mode" value="popup">
+    <div id="content">
+      <h3>王子仕事しろっ！</h3>
+      <div style="block: inline">
+        <div style="float:left">
+          <button id="aigispop" class="btn btn-success">農作業する</button>
+        </div>
+        <div style="text-align:right; padding-top: 15px;">
+          <button type="button" id="browserpopup" class="btn btn-info btn-xs" style="display: none;">この画面をポップアップ</button>
+          <button type="button" id="option" class="btn btn-info btn-xs">オプション</button>
+          <button type="button" id="test" class="btn btn-info btn-xs">TEST</button>
+        </div>
+      </div>
+      <div style="clear:both;" />
+      <div id="status">
+        <div id="status1v">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <span id="vitality" class="badge"></span>
+              カリスマ
+            </li>
+          </ul>
+        </div>
+        <div id="status2s">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <span id="stamina" class="badge"></span>
+              スタミナ
+            </li>
+          </ul>
+        </div>
+        <div id="status1">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <span id="rank" class="badge"></span>
+              王子レベル
+            </li>
+            <li class="list-group-item">
+              <span id="money" class="badge"></span>
+              おかね
+            </li>
+          </ul>
+        </div>
+        <div id="status2">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <span id="rankupsumexp" class="badge"></span>
+              累計経験値
+            </li>
+            <li class="list-group-item" style="display: none;">
+              <span id="rankupexp" class="label label-default label-time-right"></span>
+              次のレベルまで
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div style="clear:both;" />
+
+      <div id="filelist" style="display: none;">
+        <table class="table table-striped table-hover ">
+          <thead><tr><th><div style="float:left">ドロップ・ガチャ結果ファイル</div>
+            <div style="text-align:right;">
+              <button type="button" id="reexport" class="btn btn-info btn-xs" >結果ファイルを再出力</button>
+            </div>
+          </th></tr></thead>
+          <tbody>
+            <tr><td><a id="dropfile" href="#" target="_blank">ドロップ結果ファイル</a></td></tr>
+            <tr><td><a id="gachafile" href="#" target="_blank">ガチャ結果ファイル</a></td></tr>
+          </tbody>
+        </table>
+
+        <table id="capturelist" class="table table-striped table-hover ">
+          <thead><tr><th>キャプチャファイル(最大5件まで)</th></tr></thead>
+        </table>
+      </div>
+
+    </div>
+    <script type="text/javascript" src="../js/jquery/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/xml2json.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../js/constants.js"></script>
+    <script type="text/javascript" src="../js/message.js"></script>
+    <script type="text/javascript" src="../js/util.js"></script>
+
+    <script type="text/javascript" src="../js/gglanalytics.js"></script>
+
+    <script type="text/javascript" src="../js/aigisWidget.js"></script>
+
+    <script type="text/javascript" src="../js/storage.js"></script>
+    <script type="text/javascript" src="../js/aigisdb.js"></script>
+    <script type="text/javascript" src="../js/notice.js"></script>
+
+    <script type="text/javascript" src="../js/statusInvoker.js"></script>
+    <script type="text/javascript" src="../js/gachaInvoker.js"></script>
+    <script type="text/javascript" src="../js/dispatcher.js"></script>
+
+    <script type="text/javascript" src="../options_custom/lib/store.js"></script>
+    <script type="text/javascript" src="../options_custom/settings.js"></script>
+    <script type="text/javascript" src="browser_action.js"></script>
+  </body>
+</html>

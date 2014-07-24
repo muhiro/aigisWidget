@@ -1,0 +1,10 @@
+{
+  "appname": "アイギスウィジェット",
+  "prefix": "王子……、聞こえますか？",
+  "missionCompleted": "ミッション が……終わりました……",
+  "captureStart": "画像を保存しています……",
+  "captureCompleted": "{filename} が……撮れました……",
+  "captureError": "{filename} が……撮れませんでした……\n設定を……設定を見直して下さい",
+  "updateAll": "{dbname}の……更新をしています……",
+  "reexportCompleted": "{filename}の再生成が……終わりました……"
+}

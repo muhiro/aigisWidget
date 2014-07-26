@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "meta": {
     "1": { "unitname": "主人公", "classid": "9900", "rarity": "黒" },
     "2": { "unitname": "一般兵【弓】", "classid": "10001", "rarity": "鉄" },
@@ -77,6 +77,7 @@
     "84": { "unitname": "聖霊の友セリア", "classid": "600", "rarity": "白" },
     "85": { "unitname": "神官クリストファー", "classid": "10200", "rarity": "銀" },
     "87": { "unitname": "駆け出し海賊モニカ", "classid": "10400", "rarity": "金" },
-    "92": { "unitname": "聖戦士マリーベル", "classid": "200", "rarity": "白" }
+    "92": { "unitname": "聖戦士マリーベル", "classid": "200", "rarity": "白" },
+    "140": { "unitname": "中忍ハヤテ", "classid": "1001", "rarity": "銅" }
   }
 }

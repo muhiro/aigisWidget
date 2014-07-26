@@ -180,9 +180,9 @@ if ('webkitIndexedDB' in window) {
     var tra = db.transaction(STOREDROP, 'readwrite');
     var store = tra.objectStore(STOREDROP);
     var drops = new Array();
-    var unitObj = getJson(metaunits).meta;
-    var classObj = getJson(metaclasses).meta;
-    var mapObj = getJson(metamaps).meta;
+    var unitObj = getJson(metaunits);
+    var classObj = getJson(metaclasses);
+    var mapObj = getJson(metamaps);
 
     // Get everything in the store;
     var cursorRequest = store.index('byTimestamp').openCursor();
@@ -190,14 +190,23 @@ if ('webkitIndexedDB' in window) {
     cursorRequest.onsuccess = function(event) {
       var cursor = event.target.result;
       if(!!cursor == false) {
+        aigisWidget.status().set('unitsVersion', unitObj.version);
+        aigisWidget.status().set('classesVersion', classObj.version);
+        aigisWidget.status().set('mapsVersion', mapObj.version);
         callback(drops);
         return;
       } else {
         var data = cursor.value;
-        data.classname = (classObj[data.classid] === undefined) ? null : classObj[data.classid].classname
-        data.unitname = (unitObj[data.unitid] === undefined) ? null : unitObj[data.unitid].unitname
-        data.rarity = (unitObj[data.unitid] === undefined) ? null : unitObj[data.unitid].rarity
-        data.mapname = (mapObj[data.mapid] === undefined) ? null : mapObj[data.mapid].mapname
+        var drops = data.drop;
+        data.mapname = (mapObj.meta[data.mapid] === undefined) ? null : mapObj.meta[data.mapid].mapname
+        if (drops) {
+          for (var i = 0; i < drops.length; i++) {
+            var drop = drops[i];
+            drop.classname = (classObj.meta[drop.classid] === undefined) ? null : classObj.meta[drop.classid].classname
+            drop.unitname = (unitObj.meta[drop.unitid] === undefined) ? null : unitObj.meta[drop.unitid].unitname
+            drop.rarity = (unitObj.meta[drop.unitid] === undefined) ? null : unitObj.meta[drop.unitid].rarity
+          }
+        }
         cursor.update(data);
         cursor.continue();
       }
@@ -211,8 +220,8 @@ if ('webkitIndexedDB' in window) {
     var tra = db.transaction(STOREGACHA, 'readwrite');
     var store = tra.objectStore(STOREGACHA);
     var drops = new Array();
-    var unitObj = getJson(metaunits).meta;
-    var classObj = getJson(metaclasses).meta;
+    var unitObj = getJson(metaunits);
+    var classObj = getJson(metaclasses);
 
     // Get everything in the store;
     var cursorRequest = store.index('byTimestamp').openCursor();
@@ -220,13 +229,15 @@ if ('webkitIndexedDB' in window) {
     cursorRequest.onsuccess = function(event) {
       var cursor = event.target.result;
       if(!!cursor == false) {
+        aigisWidget.status().set('unitsVersion', unitObj.version);
+        aigisWidget.status().set('classesVersion', classObj.version);
         callback(drops);
         return;
       } else {
         var data = cursor.value;
-        data.classname = (classObj[data.classid] === undefined) ? null : classObj[data.classid].classname
-        data.unitname = (unitObj[data.unitid] === undefined) ? null : unitObj[data.unitid].unitname
-        data.rarity = (unitObj[data.unitid] === undefined) ? null : unitObj[data.unitid].rarity
+        data.classname = (classObj.meta[data.classid] === undefined) ? null : classObj.meta[data.classid].classname
+        data.unitname = (unitObj.meta[data.unitid] === undefined) ? null : unitObj.meta[data.unitid].unitname
+        data.rarity = (unitObj.meta[data.unitid] === undefined) ? null : unitObj.meta[data.unitid].rarity
         cursor.update(data);
         cursor.continue();
       }

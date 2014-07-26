@@ -25,15 +25,12 @@ var aigisWidget = aigisWidget || {};
     var mapUpdflg = false;
 
     if (unitObj.version != aigisWidget.status().get('unitsVersion')) {
-      aigisWidget.status().set('unitsVersion', unitObj.version);
       unitUpdflg = true;
     }
     if (classObj.version != aigisWidget.status().get('classesVersion')) {
-      aigisWidget.status().set('classesVersion', classObj.version);
       classUpdflg = true;
     }
     if (mapObj.version != aigisWidget.status().get('mapsVersion')) {
-      aigisWidget.status().set('mapsVersion', mapObj.version);
       mapUpdflg = true;
     }
     if (unitUpdflg || classUpdflg || mapUpdflg) {

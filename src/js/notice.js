@@ -36,7 +36,12 @@ var aigisWidget = aigisWidget || {};
         fmessage = ms.captureError;
         break;
       case constants.notice.reexportCompleted:
+        noticeEnabled = true;
         fmessage = ms.reexportCompleted;
+        break;
+      case constants.notice.updateAll:
+        noticeEnabled = true;
+        fmessage = ms.updateAll;
         break;
       default:
         break;

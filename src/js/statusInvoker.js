@@ -22,6 +22,7 @@ var aigisWidget = aigisWidget || {};
         break;
       case '1002'://ステータス更新要求っぽい スタミナとカリスマ？
         executeStatusUpdate(obj);
+      default:
         break;
     }
   };

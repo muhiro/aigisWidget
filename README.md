@@ -34,13 +34,15 @@ Chromeが千年戦争アイギスのサーバーと通信するデータを分�
     - [wiki](https://github.com/muhiro/aigisWidget/wiki)
 * ソース    
 ソースはすべてGitHubにて管理し公開しています。
-    - [aigisWiki GitHub](https://github.com/muhiro/aigisWidget/)
+    - [aigisWidget GitHub](https://github.com/muhiro/aigisWidget/)
 
 # すぺしゃるさんくす
 
-千年戦争アイギスウィジェットを作成するに当たり、参考にさせてもらった「艦これウィジェット」のotiai10さんに感謝っ！！
+千年戦争アイギスウィジェットを作成するに当たり、参考にさせてもらった「[艦これウィジェット](https://github.com/otiai10/kanColleWidget)」のotiai10さんに感謝っ！！
 
 # リリース履歴
+- 2014/07/25 ver0.0.3
+    - ゴールドラッシュ3!マップデータ更新
 - 2014/07/25 ver0.0.2
     - リリース環境の整備
 - 2014/07/24 ver0.0.1

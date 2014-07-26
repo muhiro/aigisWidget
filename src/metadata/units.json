@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "meta": {
     "1": { "unitname": "主人公", "classid": "9900", "rarity": "黒" },
     "2": { "unitname": "一般兵【弓】", "classid": "10001", "rarity": "鉄" },

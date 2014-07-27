@@ -12,6 +12,7 @@ $(function () {
       .append($('<h1>')
         .text(manifest.name)
     ).appendTo('#header');
+    document.title = manifest.name;
   } else {
     $('#header')
       .append($('<img>')
@@ -20,6 +21,7 @@ $(function () {
       .append($('<h1>')
         .text(manifest.name)
     );
+    document.title = manifest.name;
   }
 
   $.each(manifest.settings, function (idx, params) {

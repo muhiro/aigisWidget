@@ -1,5 +1,5 @@
 {
-  "name": "dev千年戦争アイギスウィジェット",
+  "name": "dev.千年戦争アイギスウィジェット",
   "version": "0.0.0",
   "manifest_version": 2,
   "description": "王子……、聞こえますか？結晶を……もっと結晶を割るのですっ！",
@@ -47,5 +47,12 @@
     "alarms",
     "<all_urls>"
   ],
-  "minimum_chrome_version": "36"
+  "minimum_chrome_version": "31",
+  "oauth2": {
+    "client_id": "206298929708-ak62pnmmukilom4l5idd1203tlp4ma14.apps.googleusercontent.com",
+    "apikey": "AIzaSyA8D71DP9GXqvrfYTAehrw1Eb8q61w3Z5g",
+    "scopes": [
+      "https://www.googleapis.com/auth/drive"
+    ]
+  }
 }

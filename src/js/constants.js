@@ -6,8 +6,8 @@ var constants = {
   file: {
     debugLogFile: 'debug.txt',
     debugLogBakFile: 'debug.bak.txt',
-    dropfile: 'drop.txt',
-    gachafile: 'gacha.txt',
+    dropfile: 'drop.html',
+    gachafile: 'gacha.html',
     noticeDefaultSoundFile: 'notice-default-sound'
   },
   debuglogsize: 1*1024*1024,

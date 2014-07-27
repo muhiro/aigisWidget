@@ -17,7 +17,7 @@ var aigisWidget = aigisWidget || {};
     }
   },{'urls':[
     'https://millennium-war.net/*'
-  ]},[]);
+  ]},['requestBody']);
 
   chrome.webRequest.onCompleted.addListener(function(detail){
     if(detail.method === 'POST'){
@@ -85,7 +85,7 @@ var aigisWidget = aigisWidget || {};
         break;
       case constants.msg.popupResize:
         //console.log("%s:%s", sender.tab.windowId, request.type);
-        if (settings.config().get('widgetResize')) {
+        if ( (settings.config().get('widgetResize') ) || (request.init) ) {
           chrome.windows.get(sender.tab.windowId, function (mainwin) {
             var wdiff = (constants.popup.width - sender.tab.width);
             var hdiff = (constants.popup.height - sender.tab.height);
@@ -147,14 +147,14 @@ var aigisWidget = aigisWidget || {};
             , drop.drop
             , function () {
               db.close();
-              aigisWidget.storage.append(constants.file.dropfile
-                ,aigisWidget.exportformatDrop(sysdate, drop)
-                , function() {
-                  chrome.runtime.sendMessage({type: constants.msg.uploadFileGoogleDrive
-                    ,fileName: constants.file.dropfile
-                    ,fullPath: '/'+constants.file.dropfile
-                  });
-                });
+//              aigisWidget.storage.append(constants.file.dropfile
+//                ,aigisWidget.exportformatDrop(sysdate, drop)
+//                , function() {
+//                  chrome.runtime.sendMessage({type: constants.msg.uploadFileGoogleDrive
+//                    ,fileName: constants.file.dropfile
+//                    ,fullPath: '/'+constants.file.dropfile
+//                  });
+//                });
             }
           );
         });
@@ -176,14 +176,14 @@ var aigisWidget = aigisWidget || {};
             , function () {
               db.close();
 
-              aigisWidget.storage.append(constants.file.gachafile
-                ,aigisWidget.exportformatGacha(sysdate, gacha)
-                , function() {
-                  chrome.runtime.sendMessage({type: constants.msg.uploadFileGoogleDrive
-                    ,fileName: constants.file.gachafile
-                    ,fullPath: '/'+constants.file.gachafile
-                  });
-              });
+//              aigisWidget.storage.append(constants.file.gachafile
+//                ,aigisWidget.exportformatGacha(sysdate, gacha)
+//                , function() {
+//                  chrome.runtime.sendMessage({type: constants.msg.uploadFileGoogleDrive
+//                    ,fileName: constants.file.gachafile
+//                    ,fullPath: '/'+constants.file.gachafile
+//                  });
+//              });
             }
           );
         });
@@ -219,69 +219,69 @@ var aigisWidget = aigisWidget || {};
 
       case constants.msg.reexportDrop:
         aigisWidget.storage.remove(constants.file.dropfile, function() {
-          var db = new aigisWidget.aigisdb();
-          db.open(function() {
-            db.getAllDrop(function(drops) {
-              if(drops.length < 1) {
-                db.close();
-                return;
-              }
-              util.asynceach(drops, function(drop) {
-                var deferred = new $.Deferred;
-                aigisWidget.storage.append(constants.file.dropfile
-                  , aigisWidget.exportformatDrop(new Date(drop.timestamp), drop)
-                  , function () {
-                    //書き込み完了してから次の書き込み要求
-                    deferred.resolve();
-                  });
-                return deferred.promise();
-              }, function() {
-                //終了処理
-                db.close();
-                chrome.runtime.sendMessage({type: constants.msg.uploadFileGoogleDrive
-                  , fileName: constants.file.dropfile
-                  , fullPath: '/'+constants.file.dropfile
-                });
-                aigisWidget.notice.create(constants.notice.reexportCompleted
-                  , {filename: constants.file.dropfile}
-                );
-              });
-            });
-          });
+//          var db = new aigisWidget.aigisdb();
+//          db.open(function() {
+//            db.getAllDrop(function(drops) {
+//              if(drops.length < 1) {
+//                db.close();
+//                return;
+//              }
+//              util.asynceach(drops, function(drop) {
+//                var deferred = new $.Deferred;
+//                aigisWidget.storage.append(constants.file.dropfile
+//                  , aigisWidget.exportformatDrop(new Date(drop.timestamp), drop)
+//                  , function () {
+//                    //書き込み完了してから次の書き込み要求
+//                    deferred.resolve();
+//                  });
+//                return deferred.promise();
+//              }, function() {
+//                //終了処理
+//                db.close();
+//                chrome.runtime.sendMessage({type: constants.msg.uploadFileGoogleDrive
+//                  , fileName: constants.file.dropfile
+//                  , fullPath: '/'+constants.file.dropfile
+//                });
+//                aigisWidget.notice.create(constants.notice.reexportCompleted
+//                  , {filename: constants.file.dropfile}
+//                );
+//              });
+//            });
+//          });
         });
         break;
 
       case constants.msg.reexportGacha:
         aigisWidget.storage.remove(constants.file.gachafile, function() {
-          var db = new aigisWidget.aigisdb();
-          db.open(function () {
-            db.getAllGacha(function (gachas) {
-              if(gachas.length < 1) {
-                db.close();
-                return;
-              }
-              util.asynceach(gachas, function(gacha) {
-                var deferred = new $.Deferred;
-                aigisWidget.storage.append(constants.file.gachafile
-                  , aigisWidget.exportformatGacha(new Date(gacha.timestamp), gacha)
-                  , function () {
-                    //書き込み完了してから次の書き込み要求
-                    deferred.resolve();
-                  });
-                return deferred.promise();
-              }, function() {
-                //終了処理
-                db.close();
-                chrome.runtime.sendMessage({type: constants.msg.uploadFileGoogleDrive
-                  , fileName: constants.file.gachafile
-                  , fullPath: '/'+constants.file.gachafile
-                });
-                aigisWidget.notice.create(constants.notice.reexportCompleted
-                  , {filename: constants.file.gachafile}
-                );
-              });
-            });
-          });
+//          var db = new aigisWidget.aigisdb();
+//          db.open(function () {
+//            db.getAllGacha(function (gachas) {
+//              if(gachas.length < 1) {
+//                db.close();
+//                return;
+//              }
+//              util.asynceach(gachas, function(gacha) {
+//                var deferred = new $.Deferred;
+//                aigisWidget.storage.append(constants.file.gachafile
+//                  , aigisWidget.exportformatGacha(new Date(gacha.timestamp), gacha)
+//                  , function () {
+//                    //書き込み完了してから次の書き込み要求
+//                    deferred.resolve();
+//                  });
+//                return deferred.promise();
+//              }, function() {
+//                //終了処理
+//                db.close();
+//                chrome.runtime.sendMessage({type: constants.msg.uploadFileGoogleDrive
+//                  , fileName: constants.file.gachafile
+//                  , fullPath: '/'+constants.file.gachafile
+//                });
+//                aigisWidget.notice.create(constants.notice.reexportCompleted
+//                  , {filename: constants.file.gachafile}
+//                );
+//              });
+//            });
+//          });
         });
         break;
 

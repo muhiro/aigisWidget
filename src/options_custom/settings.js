@@ -9,12 +9,13 @@ var settings = settings || {};
    */
   settings.config = function() {
     return new Store('settings', {
-      'noticeSoundVolume': 50,
+      'noticeSoundVolume': 30,
       'fileNameformat': constants.defaultImageFileFormat,
       'format': 'png',
       'shortcutKey': '0',
-      'noticeScreenShotComplete': true,
-      'noticeMissionComplete': true
+      'noticeCaptureCompleted': true,
+      'noticeMissionCompleted': true,
+      'widgetResize': true
     });
   };
 
@@ -139,6 +140,7 @@ var settings = settings || {};
     });
     $('#clearsettings').click(function () {
       settings.config().removeAll();
+      aigisWidget.status().removeAll();
       bootbox.alert('初期化しました。');
     });
 

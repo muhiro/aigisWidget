@@ -136,7 +136,7 @@ if ('webkitIndexedDB' in window) {
     var drops = new Array();
 
     // Get everything in the store;
-    var cursorRequest = store.index('byTimestamp').openCursor();
+    var cursorRequest = store.index('byTimestamp').openCursor(null, 'prev');
 
     cursorRequest.onsuccess = function(event) {
       var cursor = event.target.result;
@@ -159,7 +159,7 @@ if ('webkitIndexedDB' in window) {
     var drops = new Array();
 
     // Get everything in the store;
-    var cursorRequest = store.index('byTimestamp').openCursor();
+    var cursorRequest = store.index('byTimestamp').openCursor(null, 'prev');
 
     cursorRequest.onsuccess = function(event) {
       var cursor = event.target.result;

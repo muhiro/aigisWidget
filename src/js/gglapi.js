@@ -3,18 +3,15 @@
  */
 var gglapi = gglapi || {};
 (function() {
-  gglapi.CLIENT_ID = '206298929708-ak62pnmmukilom4l5idd1203tlp4ma14.apps.googleusercontent.com';
-  gglapi.APIKEY = 'AIzaSyA8D71DP9GXqvrfYTAehrw1Eb8q61w3Z5g';
-  gglapi.SCOPES = 'https://www.googleapis.com/auth/drive';
   gglapi.auth = false;
   /**
    * Check if the current user has authorized the application.
    */
   gglapi.checkAuth = function(callback) {
-    gapi.client.setApiKey(this.APIKEY);
+    gapi.client.setApiKey(chrome.app.getDetails().oauth2.apikey);
     gapi.auth.authorize({
-        'client_id': this.CLIENT_ID,
-        'scope': this.SCOPES,
+        'client_id': chrome.app.getDetails().oauth2.client_id,
+        'scope': chrome.app.getDetails().oauth2.scopes,
         'immediate': true
       },
       callback);
@@ -24,10 +21,10 @@ var gglapi = gglapi || {};
    * authorized
    */
   gglapi.authorize = function(callback) {
-    gapi.client.setApiKey(this.APIKEY);
+    gapi.client.setApiKey(chrome.app.getDetails().oauth2.apikey);
     gapi.auth.authorize({
-        'client_id': this.CLIENT_ID,
-        'scope': this.SCOPES,
+        'client_id': chrome.app.getDetails().oauth2.client_id,
+        'scope': chrome.app.getDetails().oauth2.scopes,
         'immediate': false
       },
       callback);

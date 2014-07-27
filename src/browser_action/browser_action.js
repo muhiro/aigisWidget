@@ -30,6 +30,22 @@ $(function() {
     }
   });
 
+  $('#drop').click(function() {
+    window.open(
+      '/browser_action/drop.html',
+      'drop'
+    );
+    return false;
+  });
+
+  $('#gacha').click(function() {
+    window.open(
+      '/browser_action/gacha.html',
+      'gacha'
+    );
+    return false;
+  });
+
   $('#browserpopup').click(function() {
     var aigispopup = window.open(
       'browser_action.html',
@@ -70,7 +86,6 @@ $(function() {
       $('#filelist').show();
       aigisWidget.storage.list(constants.capturedir, function(entries) {
         entries.forEach(function(entry, i) {
-          console.log(entry);
           $('<tr>').append($('<td>')
             .append(
               $('<a>')
@@ -82,12 +97,12 @@ $(function() {
         });
       });
 
-      aigisWidget.storage.read(constants.file.dropfile, function(entry) {
-        $('#dropfile').attr('href', entry.toURL());
-      });
-      aigisWidget.storage.read(constants.file.gachafile, function(entry) {
-        $('#gachafile').attr('href', entry.toURL());
-      });
+//      aigisWidget.storage.read(constants.file.dropfile, function(entry) {
+//        $('#dropfile').attr('href', entry.toURL());
+//      });
+//      aigisWidget.storage.read(constants.file.gachafile, function(entry) {
+//        $('#gachafile').attr('href', entry.toURL());
+//      });
     //}
   }
 });

@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="user-scalable=no,initial-scale = 1.0,maximum-scale = 1.0">
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -102,13 +102,13 @@
       <div id="filelist" style="display: none;">
         <table class="table table-striped table-hover ">
           <thead><tr><th><div style="float:left">ドロップ・ガチャ結果ファイル</div>
-            <div style="text-align:right;">
-              <button type="button" id="reexport" class="btn btn-info btn-xs" >結果ファイルを再出力</button>
-            </div>
+            <!--<div style="text-align:right;">-->
+              <!--<button type="button" id="reexport" class="btn btn-info btn-xs" >結果ファイルを再出力</button>-->
+            <!--</div>-->
           </th></tr></thead>
           <tbody>
-            <tr><td><a id="dropfile" href="#" target="_blank">ドロップ結果ファイル</a></td></tr>
-            <tr><td><a id="gachafile" href="#" target="_blank">ガチャ結果ファイル</a></td></tr>
+            <tr><td><a id="drop" href="#" target="_blank">ドロップ結果ファイル</a></td></tr>
+            <tr><td><a id="gacha" href="#" target="_blank">ガチャ結果ファイル</a></td></tr>
           </tbody>
         </table>
 
@@ -125,6 +125,7 @@
     <script type="text/javascript" src="../js/constants.js"></script>
     <script type="text/javascript" src="../js/message.js"></script>
     <script type="text/javascript" src="../js/util.js"></script>
+    <script type="text/javascript" src="../js/encoding.js"></script>
 
     <script type="text/javascript" src="../js/gglanalytics.js"></script>
 

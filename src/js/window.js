@@ -16,7 +16,10 @@ $(function() {
   /**
    * 最初の画面サイズ調整
    */
-  chrome.runtime.sendMessage({type: constants.msg.popupResize});
+  chrome.runtime.sendMessage({
+    type: constants.msg.popupResize,
+    init: true
+  });
 
   /**
    * スクリーンショット用キーバインド

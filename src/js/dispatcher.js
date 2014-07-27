@@ -17,6 +17,9 @@ var aigisWidget = aigisWidget || {};
       case 'ciys3wed'://王子のステータス更新
         this.invoker = aigisWidget.statusInvoker;
         return true;
+      case 'ntwh57oy'://クエスト失敗
+        this.invoker = aigisWidget.finishInvoker;
+        return true;
       case 'D0zA0jMx'://ガチャ結果
         this.invoker = aigisWidget.gachaInvoker;
         return true;

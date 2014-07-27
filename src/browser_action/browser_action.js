@@ -1,10 +1,9 @@
 $(function() {
+  ga('send', 'pageview', window.location.toString());
   var browserpopup = false;
   setTimeout(function() {
     $('title').text(constants.appname+' ダッシュボード');
   },500);
-  //_gaq.push(["_trackPageview"]);
-  ga('send', 'pageview');
   refresh();
 
   if (!(window.name)) {

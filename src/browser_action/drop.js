@@ -2,6 +2,7 @@
  * Created by muhi on 2014/07/27.
  */
 $(window).load(function () {
+  ga('send', 'pageview', window.location.toString());
   var table = [];
   var db = new aigisWidget.aigisdb();
   table.push(aigisWidget.exportTableformatDropHeader());

@@ -29,8 +29,9 @@
       ],
       "js" : [
         "js/jquery/jquery-2.1.1.min.js",
-        "js/gglanalytics.js",
         "js/constants.js",
+        "options_custom/lib/store.js",
+        "options_custom/settings.js",
         "js/util.js",
         "js/window.js"
       ]

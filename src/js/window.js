@@ -1,7 +1,6 @@
 var window = window || {};
 $(function() {
   setTimeout(function() {
-    ga('send', 'pageview');
     $('title').text(constants.appname);
     $('body').css({
       'position': 'fixed',

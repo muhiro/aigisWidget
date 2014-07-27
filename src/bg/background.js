@@ -1,8 +1,6 @@
 var aigisWidget = aigisWidget || {};
 (function() {
   'use strict';
-  //_gaq.push(['_trackPageview']);
-  ga('send', 'pageview');
   aigisWidget.init();
   var badgestatus = 1;
   var dispatcher = new aigisWidget.dispatcher();
@@ -69,10 +67,8 @@ var aigisWidget = aigisWidget || {};
             ',resizable=no'
         );
         aigispopup.focus();
-        ga('send', 'pageview', constants.aigisurl);
+        ga('send', 'pageview', constants.aigisurl+'&open=true');
         ga('send', 'event', 'view', 'load', 'start aigis');
-//        _gaq.push(['_trackPageview', constants.aigisurl]);
-//        _gaq.push(['_trackEvent','onload','start aigis']);
 //    chrome.windows.create({
 //      url: 'http://www.dmm.com/netgame/social/-/gadgets/=/app_id=156462/?widget=true',
 //      width:  constants.popup.width,

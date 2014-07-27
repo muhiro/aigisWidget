@@ -21,8 +21,7 @@ var settings = settings || {};
 
   if (!($('body#option').size())) { return; }
   $(window).load(function () {
-//    _gaq.push(["_trackPageview"]);
-    ga('send', 'pageview');
+    ga('send', 'pageview', window.location.toString());
 
     //認証チェック
     gglapi.checkAuth(handleSettingAuthrize);

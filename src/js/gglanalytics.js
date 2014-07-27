@@ -14,4 +14,4 @@
 
 ga('create', 'UA-53033563-2', {'cookieDomain': 'none'});
 ga('set', 'checkProtocolTask', function(){ /* nothing */ });
-ga('send', 'pageview');
+//ga('send', 'pageview');

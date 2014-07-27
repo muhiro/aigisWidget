@@ -49,7 +49,7 @@ $(function() {
     timer = setTimeout(function () {
       // リサイズ
       chrome.runtime.sendMessage({type: constants.msg.popupResize});
-      chrome.runtime.sendMessage({type: constants.msg.close
+      chrome.runtime.sendMessage({type: constants.msg.saveResize
         ,screenX: window.screenX
         ,screenY: window.screenY
       });

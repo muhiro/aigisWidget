@@ -18,6 +18,7 @@ var constants = {
     badge: 'badge',
     popup: 'popup',
     popupResize: 'popupResize',
+    saveResize: 'saveResize',
     capture: 'capture',
     close: 'close',
     logger: 'logger',

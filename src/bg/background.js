@@ -308,10 +308,16 @@ var aigisWidget = aigisWidget || {};
 //        });
         break;
 
-      case constants.msg.close:
-        //console.log("%s:%s", request.screenX, request.screenY);
+      case constants.msg.saveResize:
         aigisWidget.status().set('screenX', request.screenX);
         aigisWidget.status().set('screenY', request.screenY);
+        break;
+
+      case constants.msg.close:
+        aigisWidget.status().set('screenX', request.screenX);
+        aigisWidget.status().set('screenY', request.screenY);
+        ga('send', 'pageview', constants.aigisurl+'&close=true');
+        ga('send', 'event', 'view', 'load', 'end aigis');
         break;
 
       case constants.msg.logger:

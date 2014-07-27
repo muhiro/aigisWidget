@@ -72,19 +72,22 @@ var aigisWidget = aigisWidget || {};
             +'\r\n';
   }
   aigisWidget.exportTableformatDropHeader = function() {
-    return '<tr>'
+    var str = '<tr>'
       +'<th>日時</th>'
       +'<th>マップID</th>'
       +'<th>マップ名</th>'
       +'<th>★</th>'
-      +'<th>クリアタイム</th>'
-      +'<th>1レア</th>'+'<th>1クラスID</th>'+'<th>1クラス名</th>'+'<th>1ユニットID</th>'+'<th>1ユニット名</th>'
-      +'<th>2レア</th>'+'<th>2クラスID</th>'+'<th>2クラス名</th>'+'<th>2ユニットID</th>'+'<th>2ユニット名</th>'
-      +'<th>3レア</th>'+'<th>3クラスID</th>'+'<th>3クラス名</th>'+'<th>3ユニットID</th>'+'<th>3ユニット名</th>'
-      +'<th>4レア</th>'+'<th>4クラスID</th>'+'<th>4クラス名</th>'+'<th>4ユニットID</th>'+'<th>4ユニット名</th>'
-      +'<th>5レア</th>'+'<th>5クラスID</th>'+'<th>5クラス名</th>'+'<th>5ユニットID</th>'+'<th>5ユニット名</th>'
-      +'<th>6レア</th>'+'<th>6クラスID</th>'+'<th>6クラス名</th>'+'<th>6ユニットID</th>'+'<th>6ユニット名</th>'
-      +'</tr>';
+      +'<th>クリアタイム</th>';
+
+    for (var i = 1; i < constants.maxdrop + 1; i++) {
+      str += '<th>'+i+'レア</th>'
+        + '<th>'+i+'クラスID</th>'
+        + '<th>'+i+'クラス名</th>'
+        + '<th>'+i+'ユニットID</th>'
+        + '<th>'+i+'ユニット名</th>';
+    }
+    str += '</tr>';
+    return str;
   }
   aigisWidget.exportTableformatGachaHeader = function() {
     return '<tr>'
@@ -98,7 +101,7 @@ var aigisWidget = aigisWidget || {};
   }
   aigisWidget.exportTableformatDrop = function(sysdate, drop) {
     var strd = '';
-    var cnt = 6;
+    var cnt = constants.maxdrop;
     if (drop.drop) {
       for (var i = 0; i < drop.drop.length; i++) {
         var d = drop.drop[i];

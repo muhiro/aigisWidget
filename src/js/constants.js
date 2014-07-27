@@ -1,6 +1,7 @@
 var constants = {
   appname: 'アイギスウィジェット',
   dbversion: '1',
+  maxdrop: 7,
   aigisurl: 'http://www.dmm.com/netgame/social/-/gadgets/=/app_id=156462/?widget=true',
   defaultImageFileFormat: '千年戦争アイギス_%Y%m%d%H%M%S',
   file: {

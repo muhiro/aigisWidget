@@ -1,0 +1,59 @@
+{
+  "name": "千年戦争アイギスウィジェット",
+  "version": "0.0.8",
+  "manifest_version": 2,
+  "description": "王子……、聞こえますか？結晶を……もっと結晶を割るのですっ！",
+  "homepage_url": "http://aigis.wiki",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "page": "bg/background.html",
+    "persistent": true
+  },
+
+  "options_page": "options_custom/index.html",
+
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "千年戦争アイギスウィジェット",
+    "default_popup": "browser_action/browser_action.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches" : [
+        "http://www.dmm.co.jp/netgame/social/-/gadgets/=/app_id=156462/?widget=true*"
+      ],
+      "js" : [
+        "js/jquery/jquery-2.1.1.min.js",
+        "js/constants.js",
+        "options_custom/lib/store.js",
+        "options_custom/settings.js",
+        "js/util.js",
+        "js/window.js"
+      ]
+    }
+  ],
+
+  "content_security_policy": "script-src 'self' https://www.google-analytics.com https://ssl.google-analytics.com https://apis.google.com; object-src 'self'",
+  "permissions": [
+    "notifications",
+    "tabs",
+    "webRequest",
+    "storage",
+    "unlimitedStorage",
+    "alarms",
+    "<all_urls>"
+  ],
+  "minimum_chrome_version": "31",
+  "oauth2": {
+    "client_id": "206298929708-88ioadjiskfpulfuetb8nd4ldelobbg1.apps.googleusercontent.com",
+    "apikey": "AIzaSyA8D71DP9GXqvrfYTAehrw1Eb8q61w3Z5g",
+    "scopes": [
+      "https://www.googleapis.com/auth/drive"
+    ]
+  }
+}

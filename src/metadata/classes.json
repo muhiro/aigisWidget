@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "meta": {
     "1": { "classname": "鉄の聖霊" },
     "2": { "classname": "銅の聖霊" },
@@ -25,6 +25,7 @@
     "610": { "classname": "バーサーカー" },
     "700": { "classname": "竜戦士" },
     "800": { "classname": "サムライ" },
+    "801": { "classname": "下級サムライ" },
     "810": { "classname": "サムライマスター" },
     "900": { "classname": "王子" },
     "1000": { "classname": "忍者" },
@@ -40,6 +41,7 @@
     "10210": { "classname": "プリーテス" },
     "10300": { "classname": "ウィッチ" },
     "10310": { "classname": "ロードウィッチ" },
-    "10400": { "classname": "パイレーツ" }
+    "10400": { "classname": "パイレーツ" },
+    "10401": { "classname": "下級パイレーツ" }
   }
 }

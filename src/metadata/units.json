@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "meta": {
     "1": { "unitname": "主人公", "classid": "9900", "rarity": "黒" },
     "2": { "unitname": "一般兵【弓】", "classid": "10001", "rarity": "鉄" },
@@ -79,6 +79,7 @@
     "87": { "unitname": "駆け出し海賊モニカ", "classid": "10400", "rarity": "金" },
     "92": { "unitname": "聖戦士マリーベル", "classid": "200", "rarity": "白" },
     "112": { "unitname": "忍者ヒエン", "classid": "1000", "rarity": "金" },
-    "140": { "unitname": "中忍ハヤテ", "classid": "1001", "rarity": "銅" }
+    "140": { "unitname": "中忍ハヤテ", "classid": "1001", "rarity": "銅" },
+    "147": { "unitname": "下忍", "classid": "1001", "rarity": "鉄" }
   }
 }

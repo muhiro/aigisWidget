@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "meta": {
     "1": { "unitname": "主人公", "classid": "9900", "rarity": "黒" },
     "2": { "unitname": "一般兵【弓】", "classid": "10001", "rarity": "鉄" },
@@ -81,6 +81,7 @@
     "112": { "unitname": "忍者ヒエン", "classid": "1000", "rarity": "金" },
     "119": { "unitname": "妖精郷の戦士アトラ", "classid": "101", "rarity": "銅" },
     "124": { "unitname": "海賊マウロ", "classid": "10401", "rarity": "銅" },
+    "133": { "unitname": "プラチナアーマー", "classid": "10", "rarity": "白" },
     "140": { "unitname": "中忍ハヤテ", "classid": "1001", "rarity": "銅" },
     "141": { "unitname": "足軽", "classid": "801", "rarity": "鉄" },
     "147": { "unitname": "下忍", "classid": "1001", "rarity": "鉄" }

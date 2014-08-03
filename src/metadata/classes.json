@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "meta": {
     "1": { "classname": "鉄の聖霊" },
     "2": { "classname": "銅の聖霊" },
@@ -9,6 +9,7 @@
     "6": { "classname": "黒の聖霊" },
     "7": { "classname": "虹の聖霊" },
     "8": { "classname": "換金ユニット" },
+    "10": { "classname": "経験値ユニット" },
     "100": { "classname": "ソルジャー" },
     "101": { "classname": "下級ソルジャー" },
     "110": { "classname": "ソルジャーチーフ" },

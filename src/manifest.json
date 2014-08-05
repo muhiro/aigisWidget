@@ -25,6 +25,19 @@
   "content_scripts": [
     {
       "matches" : [
+        "http://www.dmm.com/netgame/social/-/gadgets/=/app_id=177037/?widget=true*"
+      ],
+      "js" : [
+        "js/jquery/jquery-2.1.1.min.js",
+        "js/constants.js",
+        "options_custom/lib/store.js",
+        "options_custom/settings.js",
+        "js/util.js",
+        "js/window.js"
+      ]
+    },
+    {
+      "matches" : [
         "http://www.dmm.co.jp/netgame/social/-/gadgets/=/app_id=156462/?widget=true*"
       ],
       "js" : [

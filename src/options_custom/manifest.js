@@ -2,6 +2,28 @@ this.manifest = {
   "name": "設定とか",
   //"icon": "icon.png",
   "settings": [
+
+    {
+      "tab": "ウィジェット",
+      "group": "動作",
+      "name": "r18",
+      "type": "checkbox",
+      "label": "R18版千年戦争アイギスを起動する。(チェックを外すと一般版千年戦争アイギスを起動します。)"
+    },
+    {
+      "tab": "ウィジェット",
+      "group": "表示",
+      "name": "widgetResize",
+      "type": "checkbox",
+      "label": "ウィジェットの自動リサイズを有効にする。"
+    },
+    {
+      "tab": "ウィジェット",
+      "group": "表示",
+      "type": "description",
+      "text": "ウィンドウのサイズを大きくしたあと、元の大きさにだいたい小さくすればピタッとリサイズします。"
+    },
+
     {
       "tab": "通知",
       "group": "通知音",
@@ -91,20 +113,6 @@ this.manifest = {
             "text": "png形式で保存する。"
         }
       ]
-    },
-
-    {
-      "tab": "ウィジェット",
-      "group": "表示",
-      "name": "widgetResize",
-      "type": "checkbox",
-      "label": "ウィジェットの自動リサイズを有効にする。"
-    },
-    {
-      "tab": "ウィジェット",
-      "group": "表示",
-      "type": "description",
-      "text": "ウィンドウのサイズを大きくしたあと、元の大きさにだいたい小さくすればピタッとリサイズします。"
     },
 
     {

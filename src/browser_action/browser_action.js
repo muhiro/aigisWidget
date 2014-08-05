@@ -19,6 +19,15 @@ $(function() {
     }
   });
 
+  $('#r18').prop('checked', settings.config().get('r18'));
+  $('#r18').bootstrapSwitch();
+  $('#r18').on({
+    'switchChange.bootstrapSwitch': function(event, state) {
+      console.log(state);
+      settings.config().set('r18', state);
+    }
+  });
+
   $('#option').click(function() {
     window.open(
       '/options_custom/index.html',

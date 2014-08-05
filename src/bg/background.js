@@ -51,9 +51,15 @@ var aigisWidget = aigisWidget || {};
         //badgestatus = (badgestatus === 1) ? 0 : 1;
         break;
       case constants.msg.popup:
+        var url;
+        if (settings.config().get('r18')) {
+          url = constants.aigisr18url;
+        } else {
+          url = constants.aigisurl;
+        }
         //ツールバーは72
         var aigispopup = window.open(
-          constants.aigisurl,
+          url,
           'main',
             'width=' + constants.popup.width +
             ',height=' + constants.popup.height +
@@ -67,7 +73,7 @@ var aigisWidget = aigisWidget || {};
             ',resizable=no'
         );
         aigispopup.focus();
-        ga('send', 'pageview', constants.aigisurl+'&open=true');
+        ga('send', 'pageview', url+'&open=true');
         ga('send', 'event', 'view', 'load', 'start aigis');
 //    chrome.windows.create({
 //      url: 'http://www.dmm.com/netgame/social/-/gadgets/=/app_id=156462/?widget=true',
@@ -312,7 +318,13 @@ var aigisWidget = aigisWidget || {};
       case constants.msg.close:
         aigisWidget.status().set('screenX', request.screenX);
         aigisWidget.status().set('screenY', request.screenY);
-        ga('send', 'pageview', constants.aigisurl+'&close=true');
+        var url;
+        if (settings.config().get('r18')) {
+          url = constants.aigisr18url;
+        } else {
+          url = constants.aigisurl;
+        }
+        ga('send', 'pageview', url+'&close=true');
         ga('send', 'event', 'view', 'load', 'end aigis');
         break;
 

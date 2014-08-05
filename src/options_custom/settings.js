@@ -9,13 +9,14 @@ var settings = settings || {};
    */
   settings.config = function() {
     return new Store('settings', {
+      'r18': true,
+      'widgetResize': true,
       'noticeSoundVolume': 30,
       'fileNameformat': constants.defaultImageFileFormat,
       'format': 'png',
       'shortcutKey': '0',
       'noticeCaptureCompleted': true,
-      'noticeMissionCompleted': true,
-      'widgetResize': true
+      'noticeMissionCompleted': true
     });
   };
 

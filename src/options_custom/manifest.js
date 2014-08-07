@@ -8,7 +8,13 @@ this.manifest = {
       "group": "動作",
       "name": "r18",
       "type": "checkbox",
-      "label": "R18版千年戦争アイギスを起動する。(チェックを外すと一般版千年戦争アイギスを起動します。)"
+      "label": "R18版千年戦争アイギスを起動する。"
+    },
+    {
+      "tab": "ウィジェット",
+      "group": "動作",
+      "type": "description",
+      "text": "チェックを外すと一般版千年戦争アイギスを起動します。<br>「農作業する」ボタン右側の切り替えスイッチからも変更可能です。"
     },
     {
       "tab": "ウィジェット",
@@ -68,20 +74,20 @@ this.manifest = {
       "type": "checkbox",
       "label": "音を出す。"
     },
-    {
-      "tab": "通知",
-      "group": "ミッション・クエスト完了時に",
-      "name": "noticeMissionCompleted",
-      "type": "checkbox",
-      "label": "通知を出す。"
-    },
-    {
-      "tab": "通知",
-      "group": "ミッション・クエスト完了時に",
-      "name": "noticeMissionCompletedSound",
-      "type": "checkbox",
-      "label": "音を出す。"
-    },
+//    {
+//      "tab": "通知",
+//      "group": "ミッション・クエスト完了時に",
+//      "name": "noticeMissionCompleted",
+//      "type": "checkbox",
+//      "label": "通知を出す。"
+//    },
+//    {
+//      "tab": "通知",
+//      "group": "ミッション・クエスト完了時に",
+//      "name": "noticeMissionCompletedSound",
+//      "type": "checkbox",
+//      "label": "音を出す。"
+//    },
 
 
     {

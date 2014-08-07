@@ -2,7 +2,7 @@ $(function() {
   ga('send', 'pageview', window.location.toString());
   var browserpopup = false;
   setTimeout(function() {
-    $('title').text(constants.appname+' ダッシュボード');
+    $('title').text(message.appname()+' ダッシュボード');
   },500);
   refresh();
 

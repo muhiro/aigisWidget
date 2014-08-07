@@ -51,7 +51,7 @@ var aigisWidget = aigisWidget || {};
       util.log(fmessage);
       chrome.notifications.create('aigis' + util.getTimestamp(), {
         type: 'basic',
-        title: message.fm.appname,
+        title: message.appname(),
         message: message.fm.prefix + "\n" + fmessage,
         //imageUrl : '../img/background.png'
         iconUrl: '../icons/icon128.png'

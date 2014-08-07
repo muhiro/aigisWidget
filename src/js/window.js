@@ -1,7 +1,13 @@
 var window = window || {};
 $(function() {
   setTimeout(function() {
-    $('title').text(constants.appname);
+    //あまりいい方法ではない
+    var exp = new RegExp('156462');
+    if (exp.test(location.href)) {
+      $('title').text(message.fm.appnamer18);
+    } else {
+      $('title').text(message.fm.appname);
+    }
     $('body').css({
       'position': 'fixed',
       'cursor': 'default'

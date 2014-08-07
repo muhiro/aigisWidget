@@ -5,6 +5,26 @@ var util = util || {};
     return String.fromCharCode.apply(null, new Uint8Array(buf));
   };
 
+  util.dumpArrayBuffer = function(buf, delimiter){
+    var rslt, line, bytes, i, l, s;
+
+    delimiter||(delimiter=' ');
+    if(!buf instanceof ArrayBuffer) {
+      throw new Error('required ArrayBuffer in first argument');
+    }
+
+    bytes = new Uint8Array(buf);
+    for(rslt=[],line=[],i=0,l=bytes.length; i<l; i++){
+      if(!(i&0xf)){
+        rslt.push(line.join(delimiter));
+        line=[];
+      }
+      line.push(('0'+(bytes[i]).toString(16)).substr(-2));
+    };
+    if(line.length) rslt.push(line.join(delimiter))
+    return rslt.join("\n");
+  }
+
   util.dataUrl2blob = function(dataUrl) {
     // DataURL のデータ部分を抜き出し、Base64からバイナリに変換
     //data:image/png;base64,XXXX

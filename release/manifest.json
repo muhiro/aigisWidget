@@ -1,5 +1,5 @@
 {
-  "name": "千年戦争アイギスウィジェット",
+  "name": "アイギスウィジェット",
   "version": "0.1.0",
   "manifest_version": 2,
   "description": "王子……、聞こえますか？結晶を……もっと結晶を割るのですっ！",
@@ -18,7 +18,7 @@
 
   "browser_action": {
     "default_icon": "icons/icon19.png",
-    "default_title": "千年戦争アイギスウィジェット",
+    "default_title": "アイギスウィジェット",
     "default_popup": "browser_action/browser_action.html"
   },
 
@@ -30,8 +30,7 @@
       "js" : [
         "js/jquery/jquery-2.1.1.min.js",
         "js/constants.js",
-        "options_custom/lib/store.js",
-        "options_custom/settings.js",
+        "js/message.js",
         "js/util.js",
         "js/window.js"
       ]
@@ -43,8 +42,7 @@
       "js" : [
         "js/jquery/jquery-2.1.1.min.js",
         "js/constants.js",
-        "options_custom/lib/store.js",
-        "options_custom/settings.js",
+        "js/message.js",
         "js/util.js",
         "js/window.js"
       ]

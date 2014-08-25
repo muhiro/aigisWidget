@@ -1,0 +1,38 @@
+{
+  "name": "test.アイギスウィジェット",
+  "version": "0.0.0",
+  "manifest_version": 2,
+  "description": "王子……、聞こえますか？結晶を……もっと結晶を割るのですっ！",
+  "homepage_url": "http://aigis.wiki",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "options_page": "SpecRunner.html",
+
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "test.アイギスウィジェット"
+  },
+
+  "content_security_policy": "script-src 'self' https://www.google-analytics.com https://ssl.google-analytics.com https://apis.google.com; object-src 'self'",
+  "permissions": [
+    "notifications",
+    "tabs",
+    "webRequest",
+    "storage",
+    "unlimitedStorage",
+    "alarms",
+    "<all_urls>"
+  ],
+  "minimum_chrome_version": "31",
+  "oauth2": {
+    "client_id": "206298929708-ak62pnmmukilom4l5idd1203tlp4ma14.apps.googleusercontent.com",
+    "apikey": "AIzaSyA8D71DP9GXqvrfYTAehrw1Eb8q61w3Z5g",
+    "scopes": [
+      "https://www.googleapis.com/auth/drive"
+    ]
+  }
+}

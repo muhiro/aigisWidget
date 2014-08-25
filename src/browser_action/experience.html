@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>ユニット経験値計算</title>
+  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../bootstrap/css/prettyCheckable.css" rel="stylesheet">
+  <link href="../bootstrap/css/bootstrap-slider.min.css" rel="stylesheet">
+  <link href="../bootstrap/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
+
+  <script type="text/javascript" src="../js/jquery/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/bootstrap-slider.min.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/bootbox.min.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/prettyCheckable.min.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/jquery.bootstrap-touchspin.min.js"></script>
+
+  <script type="text/javascript" src="../js/constants.js"></script>
+  <script type="text/javascript" src="../js/message.js"></script>
+  <script type="text/javascript" src="../js/util.js"></script>
+
+  <script type="text/javascript" src="../js/gglanalytics.js"></script>
+
+  <script type="text/javascript" src="../js/aigisWidget.js"></script>
+
+  <script type="text/javascript" src="../js/storage.js"></script>
+  <script type="text/javascript" src="../js/aigisdb.js"></script>
+  <script type="text/javascript" src="../js/notice.js"></script>
+
+  <script type="text/javascript" src="../js/unitexp.js"></script>
+
+  <script type="text/javascript" src="experience.js"></script>
+  <style type="text/css">
+    .slider-selection {
+      background: #BABABA;
+    }
+    .star {
+      padding-bottom: 4px;
+      padding-left: 4px;
+      padding-right: 4px;
+      height: 20px;
+    }
+    .grow-icon {
+      padding-left: 4px;
+      padding-right: 4px;
+      height: 20px;
+    }
+    .rarity-select {
+      background-color: dodgerblue;
+      color: snow;
+    }
+    .grow-select {
+      background-color: dodgerblue;
+      color: snow;
+    }
+  </style>
+</head>
+<body>
+<div id="content" class="col-lg-12">
+  <div class="page-header"><a name="簡易合成計算機"></a>
+    <h1>簡易合成計算機</h1>
+  </div>
+  <div class="well bs-component">
+    <form class="form-horizontal">
+      <fieldset>
+        <div class="form-group">
+          <label class="control-label col-sm-2"></label>
+
+          <div class="controls col-sm-4 has-pretty-child">
+            <div class="clearfix prettyradio labelright blue">
+              <input type="radio" name="rarity" id="rarity-black" class="prettyCheckable form-control rarity" value="black" data-label="黒<img class='star' src='../img/star6.png'>" data-customClass="rarity-div">
+            </div>
+            <br>
+            <div class="clearfix prettyradio labelright blue">
+              <input type="radio" name="rarity" class="prettyCheckable form-control rarity" value="platinum" data-label="白<img class='star' src='../img/star5.png'>" data-customClass="rarity-div">
+            </div>
+            <br>
+            <div class="clearfix prettyradio labelright blue">
+              <input type="radio" name="rarity" class="prettyCheckable form-control rarity" value="gold" data-label="金<img class='star' src='../img/star4.png'>" data-customClass="rarity-div">
+            </div>
+            <br>
+            <div class="clearfix prettyradio labelright blue">
+              <input type="radio" name="rarity" class="prettyCheckable form-control rarity" value="silver" data-label="銀<img class='star' src='../img/star3.png'>" data-customClass="rarity-div">
+            </div>
+            <hr>
+          </div>
+
+
+          <div class="controls col-sm-4 has-pretty-child">
+            <div class="clearfix prettyradio labelright blue">
+              <input type="radio" name="grow" id="grow-awake" class="prettyCheckable form-control grow" value="awake" data-label="<img class='grow-icon' src='../img/awake.png'>覚醒済み" data-customClass="grow-div">
+            </div>
+            <br>
+            <div class="clearfix prettyradio labelright blue">
+              <input type="radio" name="grow" id="grow-cc" class="prettyCheckable form-control grow" value="cc" data-label="<img class='grow-icon' src='../img/cc.png'>ＣＣ済み" data-customClass="grow-div">
+            </div>
+            <br>
+            <div class="clearfix prettyradio labelright blue">
+              <input type="radio" name="grow" class="prettyCheckable form-control grow" value="normal" data-label="<img class='grow-icon' src='../img/normal.png'>未ＣＣ" data-customClass="grow-div">
+            </div>
+            <hr>
+          </div>
+
+          <div class="controls col-sm-2"></div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2">レベル</label>
+
+          <div class="controls col-sm-3">
+            <input id="level" type="text" value="30" name="level"><br>
+            <input id="levelslider" type="text" class="config-slider" data-slider-id="levelslider-div" data-slider-min="1" data-slider-max="100" data-slider-step="1" data-slider-value="1">
+          </div>
+
+          <div class="controls col-sm-2"></div>
+
+          <div class="controls col-sm-5">
+            <div class="alert alert-dismissable alert-danger">今のユニットのレベルを入力</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2">次のレベルまで</label>
+
+          <div class="controls col-sm-4">
+            <input id="nextexp" type="text" value="100" name="nextexp"><br>
+            <input id="nextexpslider" type="text" class="config-slider" data-slider-id="nextexpslider-div" data-slider-min="0" data-slider-max="1000" data-slider-step="1" data-slider-reversed="true" data-slider-value="100">
+          </div>
+
+          <div class="controls col-sm-1"></div>
+
+          <div class="controls col-sm-5">
+            <div class="alert alert-dismissable alert-danger">次のレベルまでの値を入力</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2"></label>
+
+          <div class="controls col-sm-10">
+            <div class="alert alert-dismissable alert-danger"></div>
+          </div>
+
+          <div class="controls col-sm-2"></div>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

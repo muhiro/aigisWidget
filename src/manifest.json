@@ -25,8 +25,10 @@
   "content_scripts": [
     {
       "matches" : [
-        "http://www.dmm.com/netgame/social/-/gadgets/=/app_id=177037/?widget=true*"
+        "http://www.dmm.com/netgame/social/-/gadgets/=/app_id=177037/?widget=true*",
+        "http://www.dmm.co.jp/netgame/social/-/gadgets/=/app_id=156462/?widget=true*"
       ],
+      "all_frames":false,
       "js" : [
         "js/jquery/jquery-2.1.1.min.js",
         "js/constants.js",
@@ -37,14 +39,16 @@
     },
     {
       "matches" : [
-        "http://www.dmm.co.jp/netgame/social/-/gadgets/=/app_id=156462/?widget=true*"
+        "http://d2nnajpgztfi5j.cloudfront.net/*"
       ],
+      "all_frames": true,
       "js" : [
         "js/jquery/jquery-2.1.1.min.js",
+        "js/whammy.js",
         "js/constants.js",
         "js/util.js",
         "js/message.js",
-        "js/window.js"
+        "js/keybind.js"
       ]
     }
   ],

@@ -124,7 +124,7 @@ var ggldrive = ggldrive || {};
             if (prefix) {
               filename = prefix;
             } else {
-              filename = util.getImageFileName();
+              filename = util.getFileName(settings.config().get('format'));
             }
             break;
           case 'text':

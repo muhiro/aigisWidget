@@ -1,13 +1,16 @@
-var window = window || {};
 $(function() {
   setTimeout(function() {
-    //あまりいい方法ではない
-    var exp = new RegExp('156462');
-    if (exp.test(location.href)) {
-      $('title').text(message.fm.appnamer18);
-    } else {
-      $('title').text(message.fm.appname);
-    }
+    chrome.runtime.sendMessage({type: constants.msg.config
+      ,key: [
+        'r18'
+      ]
+    }, function(response) {
+      if (response.r18) {
+        $('title').text(message.fm.appnamer18);
+      } else {
+        $('title').text(message.fm.appname);
+      }
+    });
     $('body').css({
       'position': 'fixed',
       'cursor': 'default'
@@ -24,15 +27,6 @@ $(function() {
   chrome.runtime.sendMessage({
     type: constants.msg.popupResize,
     init: true
-  });
-
-  /**
-   * スクリーンショット用キーバインド
-   */
-  $(window).on('keyup',function(e) {
-    if(e.shiftKey && e.ctrlKey && e.keyCode === 48) {
-      chrome.runtime.sendMessage({type: constants.msg.capture});
-    }
   });
 
   $(window).on('beforeunload', function(e) {
@@ -52,8 +46,15 @@ $(function() {
       clearTimeout(timer);
     }
     timer = setTimeout(function () {
+      if ($(window).height() > constants.popup.height) {
+        $('body').css('position', 'absolute');
+      } else {
+        $('body').css('position', 'fixed');
+      }
       // リサイズ
-      chrome.runtime.sendMessage({type: constants.msg.popupResize});
+      chrome.runtime.sendMessage({
+        type: constants.msg.popupResize
+      });
       chrome.runtime.sendMessage({type: constants.msg.saveResize
         ,screenX: window.screenX
         ,screenY: window.screenY

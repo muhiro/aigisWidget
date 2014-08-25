@@ -1,9 +1,11 @@
 var aigisWidget = aigisWidget || {};
 (function() {
+  var aigispopup = null;
+
   'use strict';
-  aigisWidget.init();
+//  aigisWidget.init();
   var badgestatus = 1;
-  var dispatcher = new aigisWidget.dispatcher();
+//  var dispatcher = new aigisWidget.dispatcher();
 
 //  chrome.webRequest.onBeforeRequest.addListener(function(data){
 //    if(data.method === 'POST') {
@@ -33,9 +35,32 @@ var aigisWidget = aigisWidget || {};
   chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     console.log('RECEIVE:'+request.type);
     switch(request.type) {
+
+
+      case 'canvas_ini':
+        console.log(request.log);
+        break;
+      case 'canvas_key':
+        console.log(request.log);
+        //var url = webkitURL.createObjectURL(request.log);
+//        var filename = '1.webm';
+//        aigisWidget.storage.writeblob('test'+'/'+filename, request.log, function(result) {
+//        });
+        break;
+
+      case constants.msg.config:
+        //var response = {config: settings};
+        var response = {};
+        for (var i = 0; i < request.key.length; i ++) {
+          response[request.key[i]] = settings.config().get(request.key[i]);
+        }
+        sendResponse(response);
+        break;
+
       case constants.msg.notice:
         aigisWidget.notice.create(request.noticeid, request.args);
         break;
+
       case constants.msg.badge:
         var value = '';
         var nextmodified = null;
@@ -55,6 +80,7 @@ var aigisWidget = aigisWidget || {};
         }
         //badgestatus = (badgestatus === 1) ? 0 : 1;
         break;
+
       case constants.msg.popup:
         var url;
         if (settings.config().get('r18')) {
@@ -63,7 +89,7 @@ var aigisWidget = aigisWidget || {};
           url = constants.aigisurl;
         }
         //ツールバーは72
-        var aigispopup = window.open(
+        aigispopup = window.open(
           url,
           'main',
             'width=' + constants.popup.width +
@@ -96,7 +122,7 @@ var aigisWidget = aigisWidget || {};
           chrome.windows.get(sender.tab.windowId, function (mainwin) {
             var wdiff = (constants.popup.width - sender.tab.width);
             var hdiff = (constants.popup.height - sender.tab.height);
-            //console.log("$s,$s", wdiff, hdiff);
+
             if ((wdiff != 0 && wdiff > -100 && wdiff < 100) || (hdiff != 0 && hdiff > -100 && hdiff < 100)) {
               var updateWindow = {
                 width: mainwin.width + (constants.popup.width - sender.tab.width),
@@ -110,15 +136,46 @@ var aigisWidget = aigisWidget || {};
         }
         break;
 
+      case constants.msg.movie:
+/*
+        canvaspopup = window.open(
+          'test.html',
+          'sub',
+            'width=' + constants.popup.width +
+            ',height=' + constants.popup.height +
+            ',left=' + aigisWidget.status().get('screenX') +
+            ',top=' + aigisWidget.status().get('screenY') +
+            ',location=no' +
+            ',menubar=no' +
+            ',toolbar=no' +
+            ',status=no' +
+            ',scrollbars=no' +
+            ',resizable=no'
+        );
+*/
+       video = new Whammy.Video(5);
+
+      console.log(sender);
+        aigisWidget.storage.removeRecursively('/test', function () {
+          aigisWidget.storage.mkdir('/test', function () {
+            setTimeout(function() {
+              test2(sender.tab.windowId, 1);
+            },100);
+          });
+        });
+        break;
+
       case constants.msg.capture:
         //console.log('%d:%d', sender.tab.windowId, request.type);
         //console.log('capture format:%s', settings.config().get("format"));
         aigisWidget.notice.create(constants.notice.captureStart);
-        chrome.windows.get(sender.tab.windowId, function (capWin) {
-          chrome.tabs.captureVisibleTab(capWin.id, {"format": settings.config().get("format")}, function(dataUrl) {
+//        chrome.windows.get(sender.tab.windowId, function (capWin) {
+//          chrome.tabs.captureVisibleTab(capWin.id, {"format": settings.config().get("format")}, function(dataUrl) {
             //console.log("dataUrl:%s", dataUrl);
-            var filename = util.getImageFileName();
-            aigisWidget.storage.writeblob(constants.capturedir+'/'+filename, util.dataUrl2blob(dataUrl), function(result) {
+            var filename = util.getFileName(util.Ext[settings.config().get("format")]);
+
+            aigisWidget.storage.writeblob(constants.capturedir+'/'+filename, util.dataUrl2blob(request.url), function(result) {
+            //aigisWidget.storage.writeblob(constants.capturedir+'/'+filename, request.url, function(result) {
               if (settings.config().get('googleDriveUse')) {
                 chrome.runtime.sendMessage({type: constants.msg.uploadImageGoogleDrive
                   ,fileName: filename
@@ -135,8 +192,8 @@ var aigisWidget = aigisWidget || {};
                 }
               });
             });
-          });
-        });
+//          });
+//        });
         break;
 
       case constants.msg.updateDrop:

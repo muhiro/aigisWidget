@@ -38,6 +38,14 @@ $(function() {
     }
   });
 
+  $('#exp').click(function() {
+    window.open(
+      '/browser_action/experience.html',
+      'exp'
+    );
+    return false;
+  });
+
   $('#drop').click(function() {
     window.open(
       '/browser_action/drop.html',

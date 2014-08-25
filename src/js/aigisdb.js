@@ -11,6 +11,7 @@ if ('webkitIndexedDB' in window) {
   var metaunits = '../metadata/units.json';
   var metaclasses = '../metadata/classes.json';
   var metamaps = '../metadata/maps.json';
+  var metaunitexp = '../metadata/unitexp.json';
   var DBNAME = 'aigisdb';
 
   var STOREDROP = 'drop';
@@ -51,6 +52,10 @@ if ('webkitIndexedDB' in window) {
     request.onerror = function(event) {
       console.log(event);
     };
+  };
+
+  aigisdb.prototype.getUnitexp = function() {
+    return getJson(metaunitexp);
   };
 
   aigisdb.prototype.getUnits = function() {

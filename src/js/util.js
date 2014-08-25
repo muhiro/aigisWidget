@@ -1,6 +1,10 @@
 var util = util || {};
 (function() {
   'use strict';
+  util.Ext = {
+    'jpeg': 'jpg'
+    ,'png': 'png'
+  }
   util.ab2str = function(buf) {
     return String.fromCharCode.apply(null, new Uint8Array(buf));
   };
@@ -92,7 +96,7 @@ var util = util || {};
   /**
    * @return {string} filename
    */
-  util.getImageFileName = function() {
+  util.getFileName = function(ext) {
     var now  = new Date();
     var filename = settings.config().get('fileNameformat');
     filename = filename.replaceAll('%Y', ('0000' + (now.getFullYear())).slice(-4))
@@ -101,7 +105,7 @@ var util = util || {};
       .replaceAll('%H', ('00' + (now.getHours())).slice(-2))
       .replaceAll('%M', ('00' + (now.getMinutes())).slice(-2))
       .replaceAll('%S', ('00' + (now.getSeconds())).slice(-2));
-    return util.filenameEscape(filename)+'.'+settings.config().get('format');
+    return util.filenameEscape(filename)+'.'+ext;
   };
 
   util.filenameEscape = function(filename) {

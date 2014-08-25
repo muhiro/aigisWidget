@@ -44,11 +44,27 @@ var aigisWidget = aigisWidget || {};
             dirReader.readEntries(function (results) {
               if (1 > results.length) {
                 if (callback) {
-                  callback(entries.sort());
+                  console.log(entries);
+                  callback(entries.sort(function(a, b) {
+                    return (a.modificationTime < b.modificationTime) ? 1 : -1;
+                  }));
                 }
               } else {
-                entries.push.apply(entries, results);
-                readEntries();
+                util.asynceach(results, function(f) {
+                  var deferred = new $.Deferred;
+                  f.getMetadata(function(metaData) {
+                    f.size = metaData.size;
+                    f.modificationTime = metaData.modificationTime;
+                    //entries.push.apply(entries, f);
+                    entries.push(f);
+                    //メタ取得完了してから次の取得要求
+                    deferred.resolve();
+                  });
+                  return deferred.promise();
+                }, function() {
+                  //終了処理
+                  readEntries();
+                });
               }
             }, storage.errorHandler);
           };

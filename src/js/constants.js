@@ -17,11 +17,13 @@ var constants = {
   localcapturegen: 5,
   msg: {
     notice: 'notice',
+    config: 'config',
     badge: 'badge',
     popup: 'popup',
     popupResize: 'popupResize',
     saveResize: 'saveResize',
     capture: 'capture',
+    movie: 'movie',
     close: 'close',
     logger: 'logger',
     updateGacha: 'updateGacha',

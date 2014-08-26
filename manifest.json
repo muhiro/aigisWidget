@@ -2,18 +2,12 @@
   "name": "test.アイギスウィジェット",
   "version": "0.0.0",
   "manifest_version": 2,
-  "description": "王子……、聞こえますか？結晶を……もっと結晶を割るのですっ！",
-  "homepage_url": "http://aigis.wiki",
-  "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
-  },
+  "description": "王子……、聞こえますか？テストですっ！",
 
-  "options_page": "SpecRunner.html",
+  "options_page": "test/options_custom/SpecRunner.html",
 
   "browser_action": {
-    "default_icon": "icons/icon19.png",
+    "default_icon": "test/icons/icon19.png",
     "default_title": "test.アイギスウィジェット"
   },
 

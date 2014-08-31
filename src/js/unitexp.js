@@ -32,7 +32,9 @@ var unitExp = unitExp || {};
   unitExp.getMaxLevelExperienceNeeded = function(rarity, nowgrow, level, exp, nextgrow, nextlevel) {
     var idx = grows.indexOf(nowgrow);
     var nidx = grows.indexOf(nextgrow);
-    var sum = unitExp.getAmountOfExperience(rarity, level) + exp;
+    var now = Number(unitExp.getAmountOfExperience(rarity, level))
+      + (Number(unitExp.getNextLevelExperience(rarity, level)) - Number(exp));
+    var sum = 0;
     for (var i = idx; i <= nidx; i++) {
       var lvl = 0;
       if ( (nextlevel === undefined) || (i != nidx) ) {
@@ -40,9 +42,9 @@ var unitExp = unitExp || {};
       } else {
         lvl = nextlevel;
       }
-      sum += unitExp.getAmountOfExperience(rarity, lvl);
+      sum += Number(unitExp.getAmountOfExperience(rarity, lvl));
     }
-    return sum;
+    return sum - now;
   };
 
 })();

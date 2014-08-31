@@ -31,6 +31,9 @@
 
   <script type="text/javascript" src="experience.js"></script>
   <style type="text/css">
+    body {
+      font-family: "メイリオ","ＭＳ Ｐゴシック",sans-serif;
+    }
     .slider-selection {
       background: #BABABA;
     }
@@ -46,23 +49,258 @@
       height: 20px;
     }
     .rarity-select {
-      background-color: dodgerblue;
-      color: snow;
+      background-color: #2288FF;
+      color: #FFFFFF;
     }
     .grow-select {
-      background-color: dodgerblue;
-      color: snow;
+      background-color: #2288FF;
+      color: #FFFFFF;
     }
+
+    #cc30-pattern {
+      display: none;
+    }
+
+    .result {
+      background-color: #FFFFFF;
+    }
+
+    .levelup-pattern {
+      padding-top: 10px;
+      padding-bottom: 20px;
+      font-size: 1.3em;
+    }
+
+    .emp {
+      margin-right: 4px;
+      font-size: 1.2em;
+      color: #3c3c3c;
+    }
+
+    .sml {
+      margin-right: 10px;
+      margin-left: 10px;
+      font-size: 0.4em;
+      color: #3c3c3c;
+    }
+
+    .line-border {
+      border-bottom: 5px #3cf solid;
+      font-weight: bold;
+      color: #69655c;
+      font-size: 1.7em;
+    }
+
+    .line-border2 {
+      border-bottom: 1px #3cf solid;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .line-border3 {
+      border-bottom: 1px #3cf solid;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .effect1 {
+      box-shadow: 0 10px 6px -6px #777777;
+      color: #000000;
+      padding: 10px;
+    }
+
+    .effect8 {
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+      position: relative;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .effect8:before, .effect8:after {
+      border-radius: 100px 100px 100px 100px / 10px 10px 10px 10px;
+      bottom: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      content: "";
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 10px;
+      z-index: -1;
+    }
+    .effect8:after {
+      left: auto;
+      right: 10px;
+      transform: skew(8deg) rotate(3deg);
+      -webkit-transform: skew(8deg)  rotate(3deg);
+      -moz-transform: skew(8deg)  rotate(3deg);
+      -ms-transform: skew(8deg)  rotate(3deg);
+      -o-transform: skew(8deg)  rotate(3deg);
+    }
+
+    /* --------------------------------------------------
+       coder Table
+    -------------------------------------------------- */
+    .coder {
+      border-spacing: 0;
+
+      border: 1px solid #CCC;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      -o-border-radius: 6px;
+      border-radius: 6px;
+      box-shadow: 0 2px 2px #CCC;
+    }
+    .coder th,
+    .coder td {
+      padding:10px;
+      background:#FFF;
+      border-bottom:solid 1px #CCC;
+      border-right:solid 1px #CCC;
+    }
+    .coder th {
+      /*background:#e3dcd5;*/
+      background-color: #f4f4f4;
+      box-shadow: 0 2px 0 rgba(255, 255, 255, 0.8) inset;
+      color:#69655c;
+      white-space: nowrap;
+    }
+
+    /* -----------------------
+      左上角丸　最初の行の最初のセル
+    ----------------------- */
+    .coder tr:first-child th:first-child,
+    .coder tr:first-child td:first-child {
+      -webkit-border-radius: 6px 0 0 0;
+      -moz-border-radius: 6px 0 0 0;
+      -o-border-radius: 6px 0 0 0;
+      border-radius: 6px 0 0 0;
+    }
+    /* -----------------------
+      右上角丸　最初の行の最後のセル
+    ----------------------- */
+    .coder tr:first-child th:last-child,
+    .coder tr:first-child td:last-child {
+      -webkit-border-radius: 0 6px 0 0;
+      -moz-border-radius: 0 6px 0 0;
+      -o-border-radius: 0 6px 0 0;
+      border-radius: 0 6px 0 0;
+    }
+    /* -----------------------
+      左下角丸　最後の行の最初のセル
+    ----------------------- */
+    .coder tr:last-child th:first-child,
+    .coder tr:last-child td:first-child {
+      -webkit-border-radius: 0 0 0 6px;
+      -moz-border-radius: 0 0 0 6px;
+      -o-border-radius: 0 0 0 6px;
+      border-radius: 0 0 0 6px;
+    }
+    /* -----------------------
+      右下角丸　最後の行の最後のセル
+    ----------------------- */
+    .coder tr:last-child th:last-child,
+    .coder tr:last-child td:last-child {
+      -webkit-border-radius: 0 0 6px 0;
+      -moz-border-radius: 0 0 6px 0;
+      -o-border-radius: 0 0 6px 0;
+      border-radius: 0 0 6px 0;
+    }
+    /* --------------------------------------------
+      thaed,tbodyを使う場合の設定
+    -------------------------------------------- */
+    .coder thead th {background:#e3dcd5;}
+    .coder thead+tbody th {background:#f4ede6;}
+    .coder tbody th {text-align:left;}/*IE*/
+    /* -----------------------
+      左上角丸 thead内　最初の行の最初のセル
+    ----------------------- */
+    .coder thead tr:first-child th:first-child,
+    .coder thead tr:first-child td:first-child {
+      -webkit-border-radius: 6px 0 0 0;
+      -moz-border-radius: 6px 0 0 0;
+      -o-border-radius: 6px 0 0 0;
+      border-radius: 6px 0 0 0;
+    }
+    /* -----------------------
+      右上角丸 thead内　最初の行の最後のセル
+    ----------------------- */
+    .coder thead tr:first-child th:last-child,
+    .coder thead tr:first-child td:last-child {
+      -webkit-border-radius: 0 6px 0 0;
+      -moz-border-radius: 0 6px 0 0;
+      -o-border-radius: 0 6px 0 0;
+      border-radius: 0 6px 0 0;
+    }
+    /* -----------------------
+      角丸なし　thaedの後のtbody 最初の行の最初のセル
+      角丸なし　thaedの後のtbody 最初の行の最後のセル
+    ----------------------- */
+    .coder thead+tbody tr:first-child th:first-child,
+    .coder thead+tbody tr:first-child td:first-child,
+    .coder thead+tbody tr:first-child th:last-child,
+    .coder thead+tbody tr:first-child td:last-child {
+      -webkit-border-radius:0px;
+      -moz-border-radius:0px;
+      -o-border-radius:0px;
+      border-radius:0px;
+    }
+    /* -----------------------
+      左下角丸　thaedの後のtbody 最後の行の最初のセル
+    ----------------------- */
+    .coder thead+tbody tr:last-child th:first-child,
+    .coder thead+tbody tr:last-child td:first-child {
+      -webkit-border-radius: 0 0 0 6px;
+      -moz-border-radius: 0 0 0 6px;
+      -o-border-radius: 0 0 0 6px;
+      border-radius: 0 0 0 6px;
+    }
+    /* -----------------------
+      右下角丸　thaedの後のtbody 最後の行の最後のセル
+    ----------------------- */
+    .coder thead+tbody tr:last-child th:last-child,
+    .coder thead+tbody tr:last-child td:last-child {
+      -webkit-border-radius: 0 0 6px 0;
+      -moz-border-radius: 0 0 6px 0;
+      -o-border-radius: 0 0 6px 0;
+      border-radius: 0 0 6px 0;
+    }
+
+    #aigisgot {
+      margin-top: -19px;
+      background: #f4f4f4 url("../img/background.png") no-repeat center top;
+    }
+    .notice {
+      padding: 150px 10px 10px 10px;
+      /*margin-bottom: 10px;*/
+      margin:0 auto 0 auto;
+    }
+    .opacity {
+      background: #333;
+      padding: 10px;
+      -webkit-border-radius: 5px;
+      border: 5px solid #000;
+      color: #fff;
+      opacity: 0.8;
+      width: 410px;
+    }
+
   </style>
 </head>
 <body>
 <div id="content" class="col-lg-12">
-  <div class="page-header"><a name="簡易合成計算機"></a>
-    <h1>簡易合成計算機</h1>
-  </div>
   <div class="well bs-component">
     <form class="form-horizontal">
       <fieldset>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <div id="aigisgot">
+              <div class="notice" align="center">
+                <p id="opacity" class="opacity">ユニット経験値計算<br>経験値を知りたいユニットの情報を入れるのです…王子…</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="form-group">
           <label class="control-label col-sm-2"></label>
 
@@ -124,7 +362,7 @@
 
           <div class="controls col-sm-4">
             <input id="nextexp" type="text" value="100" name="nextexp"><br>
-            <input id="nextexpslider" type="text" class="config-slider" data-slider-id="nextexpslider-div" data-slider-min="0" data-slider-max="1000" data-slider-step="1" data-slider-reversed="true" data-slider-value="100">
+            <input id="nextexpslider" type="text" class="config-slider" data-slider-id="nextexpslider-div" data-slider-min="0" data-slider-max="1000" data-slider-step="1" data-slider-value="100">
           </div>
 
           <div class="controls col-sm-1"></div>
@@ -133,15 +371,86 @@
             <div class="alert alert-dismissable alert-danger">次のレベルまでの値を入力</div>
           </div>
         </div>
+      </fieldset>
+    </form>
 
+  </div>
+
+  <div class="well bs-component result">
+    <form class="form-horizontal">
+      <fieldset>
         <div class="form-group">
-          <label class="control-label col-sm-2"></label>
+          <div class="controls col-sm-12">
+            <div class="box effect1">
+              <div class="levelup-pattern">
+                <p class="line-border">最大レベルまで：<span id="maxexperience"></span>exp</p>
+                <table class="coder">
+                  <tr><th>白鎧8倍煮込み</th>
+                    <td>
+                      <div class="line-border2"><span id="maxexpPlt8" class="emp"></span>体</div>
+                      <div id="maxexpPlt8-icon"></div>
+                      <div class="line-border3">余り：<span id="maxexpPlt8rest" class="emp"></span>exp</div>
+                    </td>
+                  </tr>
+                  <tr><th>牧場産白8倍煮込み<div class="sml">※未CCレベル13（経験値：584）想定</div></th>
+                    <td>
+                      <div class="line-border2"><span id="maxexpFrm8" class="emp"></span>体</div>
+                      <div id="maxexpFrm8-icon"></div>
+                      <div class="line-border3">余り：<span id="maxexpFrm8rest" class="emp"></span>exp</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
 
-          <div class="controls col-sm-10">
-            <div class="alert alert-dismissable alert-danger"></div>
+              <div class="levelup-pattern">
+                <p class="line-border">覚醒最大レベルまで：<span id="maxawakeexperience"></span>exp<span class="sml">※銀の場合はCC済み最大まで</span></p>
+                <table class="coder">
+                  <tr><th>白鎧8倍煮込み</th>
+                    <td>
+                      <div class="line-border2"><span id="maxawkexpPlt8" class="emp"></span>体</div>
+                      <div id="maxawkexpPlt8-icon"></div>
+                      <div class="line-border3">余り：<span id="maxawkexpPlt8rest" class="emp"></span>exp</div>
+                    </td>
+                  </tr>
+                  <tr><th>牧場産白8倍煮込み<div class="sml">※未CCレベル13（経験値：584）想定</div></th>
+                    <td>
+                      <div class="line-border2"><span id="maxawkexpFrm8" class="emp"></span>体</div>
+                      <div id="maxawkexpFrm8-icon"></div>
+                      <div class="line-border3">余り：<span id="maxawkexpFrm8rest" class="emp"></span>exp</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div id="cc30-pattern" class="levelup-pattern">
+                <p class="line-border">30CC餌なら：<span id="cc30experience"></span>exp</p>
+                <table class="coder">
+                  <tr><th>白鎧8倍煮込み</th>
+                    <td>
+                      <div class="line-border2"><span id="cc30expPlt8" class="emp"></span>体</div>
+                      <div id="cc30expPlt8-icon"></div>
+                      <div class="line-border3">余り：<span id="cc30expPlt8rest" class="emp"></span>exp</div>
+                    </td>
+                  </tr>
+                  <tr><th>牧場産白8倍煮込み<div class="sml">※未CCレベル13（経験値：584）想定</div></th>
+                    <td>
+                      <div class="line-border2"><span id="cc30expFrm8" class="emp"></span>体</div>
+                      <div id="cc30expFrm8-icon"></div>
+                      <div class="line-border3">余り：<span id="cc30expFrm8rest" class="emp"></span>exp</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <!--<h3 class="box effect8">test</h3>-->
+            <!--<div>1</div>-->
+            <!--<div>2</div>-->
+
+            <!--<h3 class="box effect8">test</h3>-->
+            <!--<div>3</div>-->
+            <!--<div>4</div>-->
           </div>
-
-          <div class="controls col-sm-2"></div>
         </div>
 
       </fieldset>
@@ -149,6 +458,6 @@
   </div>
 
 </div>
-</div>
+
 </body>
 </html>

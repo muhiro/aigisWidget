@@ -68,7 +68,7 @@ $(function() {
       $('#levelslider').slider('setValue', Number($("#level").val()));
 
       var currentLevel = $('#level').val();
-      var nextexp = unitExp.getNextLevelExperience(rarity, currentLevel);
+      var nextexp = unitExp.getNextLevelExperience(rarity, grow, currentLevel);
       if (maxLevel == $("#level").val()) {
         $('#nextexp').trigger('touchspin.updatesettings', {max: 0});
         $('#nextexpslider').slider('setAttribute', 'max', 0);
@@ -98,7 +98,7 @@ $(function() {
         maxgrow = 'cc';
       }
       var maxgrowLevel = unitExp.getMaxLevel(rarity, maxgrow);
-      var maxawkexp = unitExp.getMaxLevelExperienceNeeded(rarity, grow, $('#level').val(), $('#nextexp').val(), maxgrow, maxgrowLevel);
+      var maxawkexp = unitExp.getMaxLevelExperienceNeeded(rarity, grow, $('#level').val(), $('#nextexp').val(), maxgrow);
       $('#maxawakeexperience').text(maxawkexp.toLocaleString());
       $('#maxawkexpPlt8').text(getPlatinumArmorExp(maxawkexp));
       getPlatinumArmorIcon($('#maxawkexpPlt8-icon'), getPlatinumArmorExp(maxawkexp));

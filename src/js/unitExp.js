@@ -19,12 +19,15 @@ var unitExp = unitExp || {};
     return v;
   };
 
-  unitExp.getNextLevelExperience = function(rarity, level) {
+  unitExp.getNextLevelExperience = function(rarity, grow, level) {
     var v1 = 0;
     var v2 = 0;
-    if (exp.meta[rarity].level.length > level) {
-      v1 = exp.meta[rarity].level[Number(level) - 1];
-      v2 = exp.meta[rarity].level[Number(level)];
+    var mlvl = unitExp.getMaxLevel(rarity, grow);
+    if (level != mlvl) {
+      if (exp.meta[rarity].level.length > level) {
+        v1 = exp.meta[rarity].level[Number(level) - 1];
+        v2 = exp.meta[rarity].level[Number(level)];
+      }
     }
     return v2 - v1;
   };
@@ -33,11 +36,11 @@ var unitExp = unitExp || {};
     var idx = grows.indexOf(nowgrow);
     var nidx = grows.indexOf(nextgrow);
     var now = Number(unitExp.getAmountOfExperience(rarity, level))
-      + (Number(unitExp.getNextLevelExperience(rarity, level)) - Number(exp));
+      + (Number(unitExp.getNextLevelExperience(rarity, nowgrow, level)) - Number(exp));
     var sum = 0;
     for (var i = idx; i <= nidx; i++) {
       var lvl = 0;
-      if ( (nextlevel === undefined) || (i != nidx) ) {
+      if ( (nextlevel == undefined) || (i != nidx) ) {
         lvl = unitExp.getMaxLevel(rarity, grows[i]);
       } else {
         lvl = nextlevel;

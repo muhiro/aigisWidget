@@ -16,7 +16,7 @@ $(function() {
       'cursor': 'default'
     });
     $('body').animate({
-      'top'     : '-59px',
+      'top'     : '-61px',
       'left'    : '-5px'
     },500);
   },500);

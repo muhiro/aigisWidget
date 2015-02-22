@@ -92,6 +92,14 @@ $(function() {
       $('#maxexpPlt8rest').text(getPlatinumArmorExpRest(maxexp));
       $('#maxexpFrm8rest').text(getFarmUnitExpRest(maxexp));
 
+      //現在の取得済みユニット経験値
+      var nlvl = 1;
+      if (maxLevel == $("#level").val()) {
+        nlvl = 0;
+      }
+      var now = Number(unitExp.getAmountOfExperience(rarity, Number($('#level').val()) + nlvl));
+      $('#nowexperience').text((now - Number($('#nextexp').val())).toLocaleString());
+
       //覚醒最大レベル
       var maxgrow = 'awake';
       if (rarity == 'silver') {
@@ -142,11 +150,11 @@ $(function() {
   }
 
   function getFarmUnitExp(exp) {
-    return Math.floor(exp / (584 * 8));
+    return Math.floor(exp / (698 * 8));
   }
 
   function getFarmUnitExpRest(exp) {
-    return (exp % (584 * 8));
+    return (exp % (698 * 8));
   }
 
   var inputs = $('input.prettyCheckable:not(#TestDisabled)').each(function () {

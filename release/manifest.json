@@ -1,9 +1,9 @@
 {
   "name": "アイギスウィジェット",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "manifest_version": 2,
   "description": "王子……、聞こえますか？結晶を……もっと結晶を割るのですっ！",
-  "homepage_url": "http://aigis.wiki",
+  "homepage_url": "http://blog.aigis.wiki",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",

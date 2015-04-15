@@ -31,8 +31,10 @@ Chromeが千年戦争アイギスのサーバーと通信するデータを分�
 
 ## 問い合わせやバグ報告
 - [issues](https://github.com/muhiro/aigisWidget/issues)
+
 ## 仕組みに関する情報
 - [wiki](https://github.com/muhiro/aigisWidget/wiki)
+
 ## ソース    
 ソースはすべてGitHubにて管理し公開しています。
 - [aigisWidget GitHub](https://github.com/muhiro/aigisWidget/)

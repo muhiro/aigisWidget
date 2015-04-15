@@ -104,6 +104,41 @@ $(function() {
     window.focus();
   });
 
+  $(window).on({
+    'touchstart': function(e) {
+      e.preventDefault();
+      var evt = document.createEvent("MouseEvents");
+      evt.initMouseEvent('mousedown', true, true, $(window), 0
+          , e.originalEvent.changedTouches[0].pageX
+          , e.originalEvent.changedTouches[0].pageY
+          , e.originalEvent.changedTouches[0].clientX
+          , e.originalEvent.changedTouches[0].clientY
+          , false, false, false, false, 0, null);
+      canvas.dispatchEvent( evt );
+    },
+    'touchmove': function(e) {
+      e.preventDefault();
+      var evt = document.createEvent("MouseEvents");
+      evt.initMouseEvent('mousemove', true, true, $(window), 0
+          , e.originalEvent.changedTouches[0].pageX
+          , e.originalEvent.changedTouches[0].pageY
+          , e.originalEvent.changedTouches[0].clientX
+          , e.originalEvent.changedTouches[0].clientY
+          , false, false, false, false, 0, null);
+      canvas.dispatchEvent( evt );
+    },
+    'touchend': function(e) {
+      var evt = document.createEvent("MouseEvents");
+      evt.initMouseEvent('mouseup', true, true, $(window), 0
+          , e.originalEvent.changedTouches[0].pageX
+          , e.originalEvent.changedTouches[0].pageY
+          , e.originalEvent.changedTouches[0].clientX
+          , e.originalEvent.changedTouches[0].clientY
+          , false, false, false, false, 0, null);
+      canvas.dispatchEvent( evt );
+    }
+  });
+
 //  $('html').keyup(function(e){
 //    console.log('html keyup');
 //  });

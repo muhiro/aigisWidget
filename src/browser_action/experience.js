@@ -51,6 +51,10 @@ $(function() {
     getExperienceTable();
   });
 
+  $(document).on('change', '#calc', function (eo) {
+    $('#experiencediff').text(($('#nowexperience').text() - Number($('#calc').val())));
+  });
+
   var timer = false;
   function getExperienceTable() {
     $('#maxexpPlt8-icon').hide(500);
@@ -98,7 +102,9 @@ $(function() {
         nlvl = 0;
       }
       var now = Number(unitExp.getAmountOfExperience(rarity, Number($('#level').val()) + nlvl));
-      $('#nowexperience').text((now - Number($('#nextexp').val())).toLocaleString());
+      $('#nowexperience').text((now - Number($('#nextexp').val())));
+
+      $('#experiencediff').text(($('#nowexperience').text() - Number($('#calc').val())));
 
       //覚醒最大レベル
       var maxgrow = 'awake';
@@ -181,6 +187,13 @@ $(function() {
     step: 1,
     boostat: 10,
     maxboostedstep: 100
+  });
+
+  $("input[name='calc']").TouchSpin({
+    min: -100000,
+    max: 100000,
+    verticalbuttons: true,
+    step: 1
   });
 
   $('#rarity-black').change();

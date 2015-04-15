@@ -216,14 +216,22 @@ this.manifest = {
     },
 
     {
-      "tab": "開発用",
+      "tab": "実験用",
+      "group": "画面関連",
+      "name": "zoom",
+      "type": "checkbox",
+      "label": "ズームを有効にする。"
+    },
+
+    {
+      "tab": "実験用",
       "group": "デバッグ",
       "name": "debugLog",
       "type": "checkbox",
       "label": "デバッグログを出力する。"
     },
     {
-      "tab": "開発用",
+      "tab": "実験用",
       "group": "デバッグ",
       "name": "debuglog1",
       "type": "a",
@@ -231,7 +239,7 @@ this.manifest = {
       "text": "デバッグファイル1"
     },
     {
-      "tab": "開発用",
+      "tab": "実験用",
       "group": "デバッグ",
       "name": "debuglog2",
       "type": "a",

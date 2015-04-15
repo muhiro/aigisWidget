@@ -29,7 +29,7 @@ var ggldrive = ggldrive || {};
             folderMap[result[i].id] = {};
             folderMap[result[i].id].title = result[i].title;
             folderMap[result[i].id].mimeType = result[i].mimeType;
-            if (result[i].parents) {
+            if ((result[i].parents) && (result[i].parents[0])) {
               folderMap[result[i].id].parentId = result[i].parents[0].id;
               folderMap[result[i].id].parentIsRoot = result[i].parents[0].isRoot;
             } else {

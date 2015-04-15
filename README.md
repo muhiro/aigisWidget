@@ -8,7 +8,7 @@ DMM.comの18禁タワーディフェンスゲームである「千年戦争ア�
 
 # なにができるの？
 
-* 機能概要
+## 機能概要
     - イリスちゃんをかわいく撮る「スクリーンショット撮影」
     - イリスちゃんしか見えないようにする「別窓表示」
     - イリスちゃんの成長を想像してﾑﾌﾑﾌする「経験値計算」
@@ -29,11 +29,11 @@ Chromeが千年戦争アイギスのサーバーと通信するデータを分�
 
 # そのた
 
-* 問い合わせやバグ報告
+## 問い合わせやバグ報告
     - [issues](https://github.com/muhiro/aigisWidget/issues)
-* 仕組みに関する情報
+## 仕組みに関する情報
     - [wiki](https://github.com/muhiro/aigisWidget/wiki)
-* ソース    
+## ソース    
 ソースはすべてGitHubにて管理し公開しています。
     - [aigisWidget GitHub](https://github.com/muhiro/aigisWidget/)
 

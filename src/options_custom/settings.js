@@ -11,7 +11,7 @@ var settings = settings || {};
     return new Store('settings', {
       'r18': true,
       'widgetResize': true,
-      'closeAlert': true,
+      'closeAlert': false,
       'noticeSoundVolume': 30,
       'fileNameformat': constants.defaultImageFileFormat,
       'format': 'png',

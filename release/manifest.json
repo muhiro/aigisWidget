@@ -1,6 +1,6 @@
 {
   "name": "アイギスウィジェット",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "manifest_version": 2,
   "description": "王子……、聞こえますか？結晶を……もっと結晶を割るのですっ！",
   "homepage_url": "http://blog.aigis.wiki",
@@ -40,6 +40,20 @@
     {
       "matches" : [
         "http://d2nnajpgztfi5j.cloudfront.net/*"
+      ],
+      "all_frames": true,
+      "js" : [
+        "js/jquery/jquery-2.1.1.min.js",
+        "js/whammy.js",
+        "js/constants.js",
+        "js/util.js",
+        "js/message.js",
+        "js/keybind.js"
+      ]
+    },
+    {
+      "matches" : [
+        "http://assets.millennium-war.net/*"
       ],
       "all_frames": true,
       "js" : [

@@ -159,6 +159,10 @@ $(function () {
               .attr('data-label', item.label)
               .prop('checked', value)
               .appendTo(ctl);
+            if (item.text) {
+              $('<div class="alert alert-dismissable alert-danger">' + item.text + '</div>')
+                .appendTo(ctl);
+            }
             break;
           case 'radiobuttons':
             $.each(item.options, function (idx, params) {

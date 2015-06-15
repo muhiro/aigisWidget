@@ -1,11 +1,13 @@
 $(function() {
   var zoomEnable = false;
+  var closeAlert = true;
 
   setTimeout(function() {
     chrome.runtime.sendMessage({type: constants.msg.config
       ,key: [
         'r18'
         ,'zoom'
+        ,'closeAlert'
       ]
     }, function(response) {
       if (response.r18) {
@@ -14,6 +16,7 @@ $(function() {
         $('title').text(message.fm.appname);
       }
       zoomEnable = response.zoom;
+      closeAlert = response.closeAlert;
     });
     $('#ntg-recommend').css('display', 'none');
     $('body').css({
@@ -21,7 +24,7 @@ $(function() {
       'cursor': 'default'
     });
     $('body').animate({
-      'top'     : '-61px',
+      'top'     : '-60px',
       //'left'    : '-5px'
       'left'    : '-30px'
     },500);
@@ -40,6 +43,9 @@ $(function() {
       ,screenX: window.screenX
       ,screenY: window.screenY
     });
+    if (closeAlert) {
+      return "王子……、聞こえますか？\nまだ……結晶が……残ってますよ？";
+    }
   });
 
   /**

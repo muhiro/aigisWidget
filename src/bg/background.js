@@ -7,30 +7,30 @@ var aigisWidget = aigisWidget || {};
   var badgestatus = 1;
 //  var dispatcher = new aigisWidget.dispatcher();
 
-//  chrome.webRequest.onBeforeRequest.addListener(function(data){
-//    if(data.method === 'POST') {
-//      var keyword = data.url.match(/millennium-war.net\/(.*)/)[1];
-//      var a = data.requestBody.raw[0].bytes;
-//      console.log(util.dumpArrayBuffer(a));
-//
-//      util.log('backgroud:'+util.getTimestamp()+':'+keyword+':'+util.ab2str(data.requestBody.raw[0].bytes));
-//      if (dispatcher.routing(keyword)) {
-//        dispatcher.requestBody = util.ab2str(data.requestBody.raw[0].bytes);
-//      }
-//    }
-//  },{'urls':[
-//    'https://millennium-war.net/*',
-//    'https://all.millennium-war.net/*'
-//  ]},['requestBody']);
-//
-//  chrome.webRequest.onCompleted.addListener(function(detail){
-//    if(detail.method === 'POST'){
-//      dispatcher.execute(detail)
-//    }
-//  },{'urls':[
-//    'https://millennium-war.net/*',
-//    'https://all.millennium-war.net/*'
-//  ]},[]);
+  //chrome.webRequest.onBeforeRequest.addListener(function(data){
+  //  if(data.method === 'POST') {
+  //    var keyword = data.url.match(/millennium-war.net\/(.*)/)[1];
+  //    var a = data.requestBody.raw[0].bytes;
+  //    console.log(util.dumpArrayBuffer(a));
+  //
+  //    util.log('backgroud:'+util.getTimestamp()+':'+keyword+':'+util.ab2str(data.requestBody.raw[0].bytes));
+  //    if (dispatcher.routing(keyword)) {
+  //      dispatcher.requestBody = util.ab2str(data.requestBody.raw[0].bytes);
+  //    }
+  //  }
+  //},{'urls':[
+  //  'https://millennium-war.net/*',
+  //  'https://all.millennium-war.net/*'
+  //]},['requestBody']);
+
+  //chrome.webRequest.onCompleted.addListener(function(detail){
+  //  if(detail.method === 'POST'){
+  //    dispatcher.execute(detail)
+  //  }
+  //},{'urls':[
+  //  'https://millennium-war.net/*',
+  //  'https://all.millennium-war.net/*'
+  //]},[]);
 
   chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     console.log('RECEIVE:'+request.type);

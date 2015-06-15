@@ -24,8 +24,9 @@ var ggldrive = ggldrive || {};
         //console.log("result.length = " +result.length);
         for (var i = 0; i < result.length; i++) {
           //console.log(result[i].mimeType);
-          if (!(typeof result[i].mimeType === undefined) &&
-            result[i].mimeType == "application/vnd.google-apps.folder") {
+          if ( (result[i].mimeType)
+            && (!(typeof result[i].mimeType === undefined))
+            && result[i].mimeType == "application/vnd.google-apps.folder") {
             folderMap[result[i].id] = {};
             folderMap[result[i].id].title = result[i].title;
             folderMap[result[i].id].mimeType = result[i].mimeType;
@@ -41,7 +42,8 @@ var ggldrive = ggldrive || {};
         var fullPath = "";
 
         function makePath(id) {
-          if (!folderMap[id].parentIsRoot) {
+          if (!folderMap[id].parentIsRoot
+            && folderMap[folderMap[id].parentId]) {
             fullPath = folderMap[folderMap[id].parentId].title + "/" + fullPath;
             fullParentsId.push(folderMap[id].parentId);
             makePath(folderMap[id].parentId);

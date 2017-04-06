@@ -1,4 +1,4 @@
-$(function() {
+$(window).load(function () {
   var zoomEnable = false;
   var closeAlert = true;
 
@@ -18,15 +18,15 @@ $(function() {
       zoomEnable = response.zoom;
       closeAlert = response.closeAlert;
     });
-    $('#ntg-recommend').css('display', 'none');
+    $('#ntg-recommend').removeClass('show');
+    $('#ntg-recommend').addClass('hide');
     $('body').css({
       'position': 'fixed',
       'cursor': 'default'
     });
     $('body').animate({
       'top'     : '-60px',
-      //'left'    : '-5px'
-      'left'    : '-30px'
+      'left'    : '-44px'
     },500);
   },500);
 

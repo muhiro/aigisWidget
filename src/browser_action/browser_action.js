@@ -90,11 +90,11 @@ $(function() {
   });
 
   function refresh() {
-    $('#money').text(aigisWidget.status().get('money'));
-    $('#rankupsumexp').text(aigisWidget.status().get('experience'));
-    $('#rank').text(aigisWidget.status().get('rank'));
-    $('#vitality').text(aigisWidget.status().get('nowVitality'));
-    $('#stamina').text(aigisWidget.status().get('nowStamina'));
+    // $('#money').text(aigisWidget.status().get('money'));
+    // $('#rankupsumexp').text(aigisWidget.status().get('experience'));
+    // $('#rank').text(aigisWidget.status().get('rank'));
+    // $('#vitality').text(aigisWidget.status().get('nowVitality'));
+    // $('#stamina').text(aigisWidget.status().get('nowStamina'));
     chrome.runtime.sendMessage({type: constants.msg.badge});
 
     //captureファイルの更新

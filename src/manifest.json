@@ -25,8 +25,8 @@
   "content_scripts": [
     {
       "matches" : [
-        "http://www.dmm.com/netgame/social/-/gadgets/=/app_id=177037/?widget=true*",
-        "http://www.dmm.co.jp/netgame/social/-/gadgets/=/app_id=156462/?widget=true*"
+        "http://pc-play.games.dmm.com/play/aigisc*",
+        "http://pc-play.games.dmm.co.jp/play/aigis*"
       ],
       "all_frames":false,
       "js" : [

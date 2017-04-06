@@ -177,10 +177,17 @@ var aigisWidget = aigisWidget || {};
             aigisWidget.storage.writeblob(constants.capturedir+'/'+filename, util.dataUrl2blob(request.url), function(result) {
             //aigisWidget.storage.writeblob(constants.capturedir+'/'+filename, request.url, function(result) {
               if (settings.config().get('googleDriveUse')) {
-                chrome.runtime.sendMessage({type: constants.msg.uploadImageGoogleDrive
-                  ,fileName: filename
-                  ,fullPath: constants.capturedir+'/'+filename
+
+                aigisWidget.storage.readdataurl(constants.capturedir+'/'+filename, function(data) {
+                  ggldrive.upload('image', filename, data, function(filename) {
+                    aigisWidget.notice.create(constants.notice.captureCompleted, {filename: filename});
+                  });
                 });
+
+                // chrome.runtime.sendMessage({type: constants.msg.uploadImageGoogleDrive
+                //   ,fileName: filename
+                //   ,fullPath: constants.capturedir+'/'+filename
+                // });
               } else {
                 aigisWidget.notice.create(constants.notice.captureCompleted, {filename: filename});
               }
